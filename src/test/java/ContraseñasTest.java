@@ -23,12 +23,16 @@ public class ContraseñasTest {
         public void testCrearUsuarioPasswordNoCumpleRequisitos(){
             Assertions.assertThrows(EasyPasswordException.class,()-> new Usuario("Joker","asdfr4"));
         }
-        
 
-
-
-
-
+        @Test
+        public  void testTiempoDeEspera() throws InterruptedException {
+            Usuario usuario = new Usuario("Yu" ,"Yagni3210+");
+            usuario.loginIncorrecto("asdasdsa");
+            usuario.loginIncorrecto("asdasdsa");
+            usuario.loginIncorrecto("asdasdsa");
+            double res = Math.pow(2,usuario.getCantIntentos());
+            Assertions.assertEquals(8,res);
+        }
 
 
 }

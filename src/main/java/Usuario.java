@@ -36,7 +36,7 @@ public class Usuario {
     public void loginIncorrecto(String password) throws InterruptedException {
         if(!passwordCoincide(password)) {
             cantIntentos += 1;
-            TimeUnit.MINUTES.sleep(2 ^ cantIntentos);
+            TimeUnit.SECONDS.sleep(2 ^ cantIntentos);
         }
 
     }
