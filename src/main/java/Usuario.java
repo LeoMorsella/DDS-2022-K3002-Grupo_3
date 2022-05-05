@@ -3,7 +3,7 @@ import java.util.concurrent.TimeUnit;
 public class Usuario {
     private String username;
     private String password;
-    private int cantIntentos;
+    private int cantIntentos = 0;
 
     public Boolean passwordCoincide(String password){
 
@@ -27,6 +27,10 @@ public class Usuario {
 
         return password;
 
+    }
+
+    public int getCantIntentos(){
+        return cantIntentos;
     }
 
     public void loginIncorrecto(String password) throws InterruptedException {
