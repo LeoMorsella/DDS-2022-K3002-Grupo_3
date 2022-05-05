@@ -23,6 +23,7 @@ public class ContraseñasTest {
         public void testCrearUsuarioPasswordNoCumpleRequisitos(){
             Assertions.assertThrows(EasyPasswordException.class,()-> new Usuario("Joker","asdfr4"));
         }
+        
 
 
 
