@@ -12,7 +12,7 @@ public class Miembro {
     public  void registrarTrayecto(ArrayList<Trayecto> nuevosTrayectos) {
         for(Trayecto trayecto : nuevosTrayectos) {
             trayectos.add(trayecto);
-
+            RepositorioTrayectos.getRepositorio().agregarTrayecto(trayecto);
         }
     }
 

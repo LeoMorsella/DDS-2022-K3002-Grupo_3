@@ -6,4 +6,16 @@ public class Organizacion {
     public Ubicacion ubicacion;
     public ArrayList<Area> areas;
     public String clasificacion;
+
+    public Organizacion(String razon, TipoOrg tipoOrganizacion, Ubicacion ubi, ArrayList<Area> areas, String clasi){
+        this.razonSocial = razon;
+        this.tipo = tipoOrganizacion;
+        this.ubicacion = ubi;
+        this.areas = areas;
+        this.clasificacion = clasi;
+    }
+
+    public void agregarSector(Area area){
+        this.areas.add(area);
+    }
 }
