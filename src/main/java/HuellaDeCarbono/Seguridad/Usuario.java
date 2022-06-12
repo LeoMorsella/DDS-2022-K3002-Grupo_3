@@ -25,11 +25,7 @@ public class Usuario {
         return username;
     }
 
-    public String getPassword() {
-
-        return password;
-
-    }
+    public String getPassword() { return password; }
 
     public int getCantIntentos(){
         return cantIntentos;
@@ -40,7 +36,6 @@ public class Usuario {
             cantIntentos += 1;
             TimeUnit.SECONDS.sleep(2 ^ cantIntentos);
         }
-
     }
 
 
