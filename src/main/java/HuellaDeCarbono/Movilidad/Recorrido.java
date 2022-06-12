@@ -16,12 +16,12 @@ public class Recorrido {
         for(Trayecto trayecto : nuevosTrayectos) trayectos.add(trayecto);
     }
 
-    public Distancia distanciaTotal(){
-        Distancia distanciaTotal = 0;
+    public Float distanciaTotal() throws Exception {
+        Float distanciaTotal = Float.valueOf(0);
         for (Trayecto trayecto : trayectos){
             distanciaTotal = distanciaTotal + trayecto.distanciaMedia();
         }
-        return distanciaTotal
+        return distanciaTotal;
     }
 
 }

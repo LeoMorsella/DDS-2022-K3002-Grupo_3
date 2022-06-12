@@ -14,8 +14,8 @@ public class Parada {
         this.ubicacion = ubi;
     }
 
-    public Distancia distancaAProximaParada(){
-        APIDistanciaService distanciaService = new APIDistanciaService()
+    public Float distancaAProximaParada() throws Exception {
+        APIDistanciaService distanciaService = new APIDistanciaService();
         if (siguienteParada!= null) {
             return distanciaService.medirDistancia(this.ubicacion, siguienteParada.ubicacion);
         }
