@@ -1,3 +1,8 @@
+package HuellaDeCarbono.Organizacion;
+
+import HuellaDeCarbono.Movilidad.RepositorioTrayectos;
+import HuellaDeCarbono.Movilidad.Trayecto;
+
 import java.util.ArrayList;
 
 public class Miembro {

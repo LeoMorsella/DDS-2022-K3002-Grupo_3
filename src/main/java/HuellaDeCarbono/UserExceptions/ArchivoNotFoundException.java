@@ -1,4 +1,4 @@
-package UserExceptions;
+package HuellaDeCarbono.UserExceptions;
 
 public class ArchivoNotFoundException extends  RuntimeException {
     public ArchivoNotFoundException(String mensajeDeError) {

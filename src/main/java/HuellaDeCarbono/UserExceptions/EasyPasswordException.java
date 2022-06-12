@@ -1,4 +1,4 @@
-package UserExceptions;
+package HuellaDeCarbono.UserExceptions;
 
 public class EasyPasswordException extends RuntimeException{
     public EasyPasswordException(String mensajeDeError) {

@@ -1,3 +1,5 @@
+package HuellaDeCarbono.Seguridad;
+
 import java.util.concurrent.TimeUnit;
 
 public class Usuario {

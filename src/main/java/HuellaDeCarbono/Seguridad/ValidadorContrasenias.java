@@ -1,5 +1,7 @@
-import UserExceptions.ArchivoNotFoundException;
-import UserExceptions.EasyPasswordException;
+package HuellaDeCarbono.Seguridad;
+
+import HuellaDeCarbono.UserExceptions.ArchivoNotFoundException;
+import HuellaDeCarbono.UserExceptions.EasyPasswordException;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;

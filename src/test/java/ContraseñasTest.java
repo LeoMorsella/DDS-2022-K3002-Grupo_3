@@ -1,9 +1,9 @@
-import UserExceptions.EasyPasswordException;
+import HuellaDeCarbono.UserExceptions.EasyPasswordException;
+import HuellaDeCarbono.Seguridad.Usuario;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.security.NoSuchAlgorithmException;
-import java.time.LocalDate;
 
 public class ContraseñasTest {
 

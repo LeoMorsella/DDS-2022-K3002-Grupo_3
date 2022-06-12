@@ -1,3 +1,8 @@
+package HuellaDeCarbono.Movilidad;
+
+import HuellaDeCarbono.MedioDeTransporte.Medio;
+import HuellaDeCarbono.Organizacion.Ubicacion;
+
 public class Trayecto {
     Ubicacion puntoPartida;
     Ubicacion puntoLlegada;

@@ -1,3 +1,5 @@
+package HuellaDeCarbono.Organizacion;
+
 import java.util.ArrayList;
 
 public class Area {

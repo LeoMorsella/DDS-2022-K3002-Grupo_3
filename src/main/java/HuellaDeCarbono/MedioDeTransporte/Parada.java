@@ -1,3 +1,7 @@
+package HuellaDeCarbono.MedioDeTransporte;
+
+import HuellaDeCarbono.Organizacion.Ubicacion;
+
 public class Parada {
     String nombre;
     Ubicacion ubicacion;
