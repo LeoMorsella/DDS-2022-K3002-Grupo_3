@@ -11,15 +11,8 @@ public class Miembro {
     public String tipoDoc;
     public int numDoc;
     public ArrayList<Area> areas;
-    public ArrayList<Trayecto> trayectos;
+    public ArrayList<ArrayList<Trayecto>> recorrido;
 
-
-    public  void registrarTrayecto(ArrayList<Trayecto> nuevosTrayectos) {
-        for(Trayecto trayecto : nuevosTrayectos) {
-            trayectos.add(trayecto);
-            RepositorioTrayectos.getRepositorio().agregarTrayecto(trayecto);
-        }
-    }
 
     public void registrarseA(Area area) {
         areas.add(area);

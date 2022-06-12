@@ -1,5 +1,6 @@
 package HuellaDeCarbono.Movilidad;
 
+import HuellaDeCarbono.CalculoDeDistancias.APIDistanciaService;
 import HuellaDeCarbono.MedioDeTransporte.Medio;
 import HuellaDeCarbono.Organizacion.Ubicacion;
 
@@ -12,5 +13,10 @@ public class Trayecto {
         this.puntoPartida = salida;
         this.puntoLlegada = llegada;
         this.medioTransporte = medio;
+    }
+
+    public Distancia distanciaMedia() throws Exception {
+        APIDistanciaService distanciaService = new APIDistanciaService()
+        distanciaService.medirDistancia(puntoPartida, puntoLlegada);
     }
 }

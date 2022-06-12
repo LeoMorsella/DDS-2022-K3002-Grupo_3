@@ -10,7 +10,7 @@ import java.lang.Exception;
 
 public class APIDistanciaService {
 
-    public Integer obtenerDistancia(Ubicacion ubicacion1, Ubicacion ubicacion2) throws Exception {
+    public Integer medirDistancia(Ubicacion ubicacion1, Ubicacion ubicacion2) throws Exception {
         WebClient clientDistancia = WebClient.create("https://ddstpa.com.ar/api/distancia?calleOrigen=" + ubicacion1.getCalle() + "&alturaOrigen=" + ubicacion1.getAltura() + "&calledestino=" + ubicacion2.getCalle() + "&alturaDestino=" + ubicacion2.getAltura());
 
         ObjectMapper mapper = new ObjectMapper();
@@ -26,10 +26,6 @@ public class APIDistanciaService {
         if (status == 200) {
         //todavia no se que devuelve el json
             Distancia newDistancia = mapper.readValue(responseBody, Distancia.class);
-            System.out.println("Nombre: " + newPokemon.getName());
-            System.out.println("Imagen: " + "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + newPokemon.getId() + ".png");
-            System.out.println("Habilidades: " + newPokemon.getHabilidades());
-
 
         } else {
             System.out.println("Error response = " + responseBody);
