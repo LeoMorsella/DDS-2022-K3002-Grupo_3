@@ -12,9 +12,9 @@ public class Organizacion {
     public TipoOrg tipo;
     public Ubicacion ubicacion;
     public ArrayList<Area> areas;
-    public String clasificacion;
+    public Clasificacion clasificacion;
 
-    public Organizacion(String razon, TipoOrg tipoOrganizacion, Ubicacion ubi, ArrayList<Area> areas, String clasi){
+    public Organizacion(String razon, TipoOrg tipoOrganizacion, Ubicacion ubi, ArrayList<Area> areas, Clasificacion clasi){
         this.razonSocial = razon;
         this.tipo = tipoOrganizacion;
         this.ubicacion = ubi;
