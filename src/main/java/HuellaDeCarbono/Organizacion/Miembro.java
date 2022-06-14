@@ -54,14 +54,15 @@ public class Miembro {
                 cantidadIntentos += 1;
                 TimeUnit.SECONDS.sleep(2 ^ cantidadIntentos);
             }
-            else{
+           // Esta parte me parece que no es necesaria
+            //else{
                 //TODO: Mostrar msj de Usuario o Contrasena incorrectos
-                this.cantidadIntentos = 0;
-            }
+              //  this.cantidadIntentos = 0;
+            //}
         }
-        else{
+        //else{
             //TODO: Mostrar msj de tipo de usuario no valido para realizar la accion
-        }
+        //}
     }
 
     public void registrarseA(Area area) {

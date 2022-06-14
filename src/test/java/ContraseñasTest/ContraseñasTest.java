@@ -1,40 +1,54 @@
 package ContraseñasTest;
 
+import HuellaDeCarbono.Movilidad.Trayecto;
+import HuellaDeCarbono.Organizacion.Area;
+import HuellaDeCarbono.Organizacion.Miembro;
+import HuellaDeCarbono.Organizacion.Rol;
 import HuellaDeCarbono.UserExceptions.EasyPasswordException;
-import HuellaDeCarbono.Seguridad.Usuario;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 
 public class ContraseñasTest {
 
 
         @Test
-        public void testCrearUsuarioPasswordFacil(){
-            Assertions.assertThrows(EasyPasswordException.class,()-> new Usuario("Dio" ,"password"));
+        public void testCrearMiembroPasswordFacil() {
+            ArrayList<Area> areasPrueba = new ArrayList<>();
+            ArrayList<ArrayList<Trayecto>> recorrido = new ArrayList<>();
+            Assertions.assertThrows(EasyPasswordException.class,()-> new Miembro("Juan","Perez","DNI", Rol.MIEMBRO,123456789,areasPrueba,recorrido,"prueba","password"));
         }
 
         @Test
-        public void testCrearUsuarioPasswordSegura() throws NoSuchAlgorithmException {
-            Usuario usuario = new Usuario("Yu" ,"Yagni3210+");
-            Assertions.assertEquals(usuario.getUsername(),"Yu");
+        public void testCrearMiembroPasswordSegura() throws NoSuchAlgorithmException {
+            ArrayList<Area> areasPrueba = new ArrayList<>();
+            ArrayList<ArrayList<Trayecto>> recorrido = new ArrayList<>();
+            Miembro miembro = new Miembro("Juan","Perez","DNI", Rol.MIEMBRO,123456789,areasPrueba,recorrido,"prueba","Yagni3210+");
+            Assertions.assertEquals(miembro.getUsername(),"prueba");
         }
 
         @Test
-        public void testCrearUsuarioPasswordNoCumpleRequisitos(){
-            Assertions.assertThrows(EasyPasswordException.class,()-> new Usuario("Joker","asdfr4"));
+        public void testCrearMiembroPasswordNoCumpleRequisitos() {
+            ArrayList<Area> areasPrueba = new ArrayList<>();
+            ArrayList<ArrayList<Trayecto>> recorrido = new ArrayList<>();
+            Assertions.assertThrows(EasyPasswordException.class,()-> new Miembro ("Juan","Perez","DNI", Rol.MIEMBRO,123456789,areasPrueba,recorrido,"prueba","asdfr4"));
         }
 
         @Test
-        public  void testTiempoDeEspera() throws InterruptedException {
-            Usuario usuario = new Usuario("Yu" ,"Yagni3210+");
-            usuario.loginIncorrecto("asdasdsa");
-            usuario.loginIncorrecto("asdasdsa");
-            usuario.loginIncorrecto("asdasdsa");
-            double res = Math.pow(2,usuario.getCantIntentos());
+
+        public void testTiempoEsperaLogueo() throws InterruptedException {
+            ArrayList<Area> areasPrueba = new ArrayList<>();
+            ArrayList<ArrayList<Trayecto>> recorrido = new ArrayList<>();
+            Miembro miembro = new Miembro("Juan","Perez","DNI", Rol.MIEMBRO,123456789,areasPrueba,recorrido,"prueba","Yagni3210+");
+            miembro.validarLogueo("asasasas");
+            miembro.validarLogueo("asasasas");
+            miembro.validarLogueo("asasasas");
+            double res = Math.pow(2,miembro.getCantIntentos());
             Assertions.assertEquals(8,res);
         }
+
 
 
 }
