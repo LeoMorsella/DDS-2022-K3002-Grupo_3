@@ -31,4 +31,9 @@ public class Organizacion {
         //TODO: Revisar si los atributos del trayecto se reciben como parametro o los creamos nosotros
         RepositorioTrayectos.getRepositorio().agregarTrayecto(nuevoTrayecto);
     }
+
+    /* public void cargarMediciones(){
+
+    }
+     */
 }
