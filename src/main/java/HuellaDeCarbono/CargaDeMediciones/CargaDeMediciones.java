@@ -32,7 +32,7 @@ import java.util.Iterator;
             return this;
         }
 
-        public void lecturaArchivo(int sheetNumber) {
+        public String lecturaArchivo(int sheetNumber) {
             try {
                 sheet = workbook.getSheetAt(sheetNumber); // Obtiene la hoja de la posicion 0 (Hoja 1) del archivo
 
@@ -41,32 +41,64 @@ import java.util.Iterator;
                 rowIterator.next();
                 rowIterator.next(); // Evita leer las dos primeras filas(Titulos)
 
+                String actividad = null;
+                String tipoDeConsumo = null;
+                double valor = 0;
+                String periodicidad = null;
+                String periodoImputacion = null;
+
                 while (rowIterator.hasNext()) {
                     Row row = rowIterator.next();
 
                     Iterator<Cell> cellIterator = row.cellIterator();
+                    actividad = null;
+                    tipoDeConsumo = null;
+                    periodicidad = null;
+                    periodoImputacion = null;
                     while (cellIterator.hasNext()) {
                         Cell cell = cellIterator.next();
 
                         switch (cell.getCellType()) {
                             case NUMERIC:
-                                System.out.println(cell.getNumericCellValue() + "\t");
+                                valor = cell.getNumericCellValue();
                                 break;
 
                             case STRING:
-                                System.out.println(cell.getStringCellValue() + "\t");
+                                int numeroCelda = cell.getColumnIndex();
+                                switch (numeroCelda) {
+
+                                    case 0:
+                                        actividad = cell.getStringCellValue();
+                                        break;
+                                    case 1:
+                                        tipoDeConsumo = cell.getStringCellValue();
+                                    case 2:
+                                        periodicidad = cell.getStringCellValue();
+                                    case 3:
+                                        periodoImputacion = cell.getStringCellValue();
+                                        break;
+                                }
                                 break;
+
+
                         }
+
                     }
+                    Medicion nuevaMedicion = new Medicion(actividad, tipoDeConsumo, periodicidad, periodoImputacion);
 
-
-                    System.out.println("");
                 }
-                file.close();
+                return "RowDatoActividad{" +
+                        "actividad='" + actividad +
+                        ", tipoDeConsumo='" + tipoDeConsumo +
+                        ", valor=" + valor +
+                        ", periodicidad='" + periodicidad +
+                        ", periodoImputacion='" + periodoImputacion +
+                        '}';
             }catch (Exception e){
                 e.printStackTrace();
             }
 
+            return null;
         }
     }
 

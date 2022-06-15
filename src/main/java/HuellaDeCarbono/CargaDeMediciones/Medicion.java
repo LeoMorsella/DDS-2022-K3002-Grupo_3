@@ -4,13 +4,13 @@ import org.apache.poi.ss.usermodel.Row;
 
 public class Medicion {
 
-        private final String actividad;
-        private final String tipoDeConsumo;
-        private final double valor;
-        private final String periodicidad;
-        private final String periodoImputacion;
+         private  String actividad;
+         private  String tipoDeConsumo;
+         private double valor;
+        private  String periodicidad;
+        private String periodoImputacion;
 
-        private Medicion(String actividad, String tipoDeConsumo, double valor, String periodicidad, String periodoImputacion) {
+        public Medicion(String actividad, String tipoDeConsumo, double valor, String periodicidad, String periodoImputacion) {
             this.actividad = actividad;
             this.tipoDeConsumo = tipoDeConsumo;
             this.valor = valor;
@@ -18,7 +18,14 @@ public class Medicion {
             this.periodoImputacion = periodoImputacion;
         }
 
-        public static Medicion fromRow(Row row) {
+    public Medicion() {
+
+    }
+
+    public Medicion(String actividad, String tipoDeConsumo, String periodicidad, String periodoImputacion) {
+    }
+
+    public static Medicion fromRow(Row row) {
             String actividad = row.getCell(0).getStringCellValue();
             String tipoDeConsumo = row.getCell(1).getStringCellValue();
             double valor = row.getCell(2).getNumericCellValue();
