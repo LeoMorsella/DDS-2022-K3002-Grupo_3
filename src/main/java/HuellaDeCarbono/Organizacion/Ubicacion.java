@@ -3,13 +3,15 @@ package HuellaDeCarbono.Organizacion;
 public class Ubicacion {
     String provincia;
 
-    String ciudad;
+    String municipio; // Municipio
+
+    String localidad;
     String calle;
     String altura;
 
-    public Ubicacion(String provincia, String ciudad, String calle, String altura) {
+    public Ubicacion(String provincia, String municipio, String localidad, String calle, String altura) {
         this.provincia = provincia;
-        this.ciudad = ciudad;
+        this.municipio = municipio;
         this.calle = calle;
         this.altura = altura;
     }
@@ -22,12 +24,20 @@ public class Ubicacion {
         this.provincia = provincia;
     }
 
-    public String getCiudad() {
-        return ciudad;
+    public String getMunicipio() {
+        return municipio;
     }
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+
+    public String getLocalidad() {
+        return localidad;
+    }
+
+    public void setLocalidad(String localidad) {
+        this.localidad = localidad;
     }
 
     public String getCalle() {
