@@ -1,13 +1,13 @@
 package HuellaDeCarbono.MedioDeTransporte;
 
-import HuellaDeCarbono.CalculoDeDistancias.APIDistanciaService;
+import HuellaDeCarbono.CalculoDeDistancias.Distancia;
 import HuellaDeCarbono.Organizacion.Ubicacion;
 
 public class Parada {
     String nombre;
     Ubicacion ubicacion;
 
-    Parada siguienteParada;
+    Distancia distanciaAProximaParada;
 
     public Parada(String nom, Ubicacion ubi){
         this.nombre = nom;
@@ -15,9 +15,8 @@ public class Parada {
     }
 
     public Float distancaAProximaParada() throws Exception {
-        APIDistanciaService distanciaService = new APIDistanciaService();
-        if (siguienteParada!= null) {
-            return distanciaService.medirDistancia(this.ubicacion, siguienteParada.ubicacion);
+        if (distanciaAProximaParada.getValor()!= 0) {
+            return distanciaAProximaParada.getValor();
         }
         else{
             throw new RuntimeException("No hay siguiente parada (Parada Terminal)");

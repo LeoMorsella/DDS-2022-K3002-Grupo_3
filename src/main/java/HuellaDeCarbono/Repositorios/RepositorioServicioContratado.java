@@ -1,15 +1,17 @@
-package HuellaDeCarbono.MedioDeTransporte;
+package HuellaDeCarbono.Repositorios;
+
+import HuellaDeCarbono.MedioDeTransporte.TipoServicio;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class RepositorioServicioContratado {
   private static RepositorioServicioContratado instance = new RepositorioServicioContratado();
-  public List<ServicioContratado> servicios;
+  public List<TipoServicio> servicios;
 
 
   private RepositorioServicioContratado() {
-    this.servicios = new ArrayList<>();
+    this.servicios = new ArrayList<TipoServicio>();
 
   }
 
@@ -17,7 +19,7 @@ public class RepositorioServicioContratado {
     return instance;
   }
 
-  public void agregarServicioContratado(ServicioContratado ser){
+  public void agregarServicioContratado(TipoServicio ser){
     this.servicios.add(ser);
   }
 }

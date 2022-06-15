@@ -1,6 +1,6 @@
 package HuellaDeCarbono.MedioDeTransporte;
 
-public enum TipoVehiculo {
+public enum TipoVehiculoMotorizado {
     MOTO,
     AUTO,
     CAMIONETA;

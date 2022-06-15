@@ -1,4 +1,6 @@
-package HuellaDeCarbono.Organizacion;
+package HuellaDeCarbono.Repositorios;
+
+import HuellaDeCarbono.Organizacion.Organizacion;
 
 import java.util.ArrayList;
 import java.util.List;

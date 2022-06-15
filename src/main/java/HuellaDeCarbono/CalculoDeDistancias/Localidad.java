@@ -2,7 +2,7 @@ package HuellaDeCarbono.CalculoDeDistancias;
 
 public class Localidad {
 
-    private String id;
+    private Integer id;
 
     private String nombre;
 
@@ -10,11 +10,11 @@ public class Localidad {
 
     private Municipio municipio;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

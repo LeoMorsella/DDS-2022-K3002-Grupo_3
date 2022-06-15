@@ -1,4 +1,4 @@
-package HuellaDeCarbono.Movilidad;
+package HuellaDeCarbono.Repositorios;
 
 public class RepositorioRecorrido {
 }

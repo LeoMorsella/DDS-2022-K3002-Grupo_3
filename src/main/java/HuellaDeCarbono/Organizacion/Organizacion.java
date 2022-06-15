@@ -1,8 +1,7 @@
 package HuellaDeCarbono.Organizacion;
 
-import HuellaDeCarbono.Organizacion.Area;
 import HuellaDeCarbono.MedioDeTransporte.Medio;
-import HuellaDeCarbono.Movilidad.RepositorioTrayectos;
+import HuellaDeCarbono.Repositorios.RepositorioTrayectos;
 import HuellaDeCarbono.Movilidad.Trayecto;
 
 import java.util.ArrayList;
@@ -13,6 +12,46 @@ public class Organizacion {
     public Ubicacion ubicacion;
     public ArrayList<Area> areas;
     public Clasificacion clasificacion;
+
+    public String getRazonSocial() {
+        return razonSocial;
+    }
+
+    public void setRazonSocial(String razonSocial) {
+        this.razonSocial = razonSocial;
+    }
+
+    public TipoOrg getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoOrg tipo) {
+        this.tipo = tipo;
+    }
+
+    public Ubicacion getUbicacion() {
+        return ubicacion;
+    }
+
+    public void setUbicacion(Ubicacion ubicacion) {
+        this.ubicacion = ubicacion;
+    }
+
+    public ArrayList<Area> getAreas() {
+        return areas;
+    }
+
+    public void setAreas(ArrayList<Area> areas) {
+        this.areas = areas;
+    }
+
+    public Clasificacion getClasificacion() {
+        return clasificacion;
+    }
+
+    public void setClasificacion(Clasificacion clasificacion) {
+        this.clasificacion = clasificacion;
+    }
 
     public Organizacion(String razon, TipoOrg tipoOrganizacion, Ubicacion ubi, ArrayList<Area> areas, Clasificacion clasi){
         this.razonSocial = razon;

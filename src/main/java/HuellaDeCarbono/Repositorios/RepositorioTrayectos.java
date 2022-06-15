@@ -1,8 +1,9 @@
-package HuellaDeCarbono.Movilidad;
+package HuellaDeCarbono.Repositorios;
+
+import HuellaDeCarbono.Movilidad.Trayecto;
 
 import java.util.ArrayList;
 import java.util.List;
-
 
 //Cambiar por repositorioRecorridos
 public class RepositorioTrayectos {

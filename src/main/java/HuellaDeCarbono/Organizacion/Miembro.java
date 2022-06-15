@@ -1,6 +1,5 @@
 package HuellaDeCarbono.Organizacion;
 
-import HuellaDeCarbono.Movilidad.RepositorioTrayectos;
 import HuellaDeCarbono.Movilidad.Trayecto;
 import HuellaDeCarbono.Seguridad.ValidadorContrasenias;
 

@@ -1,6 +1,7 @@
 package HuellaDeCarbono.CalculoDeDistancias;
 
 import HuellaDeCarbono.Organizacion.Ubicacion;
+import HuellaDeCarbono.UserExceptions.BadResponseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,13 +14,37 @@ public class APIDistanciaService {
 
     private String token = "Bearer 5PLixIkvvSuNT23px0g/L6iOS8N2R6gxj1nbTG1DrSo="; // hardcodeado para pruebas
 
-    private int buscarIdLocalidad(Ubicacion ubicacion) {
-        int idProvincia = this.buscarId("provincia", 9,ubicacion.getProvincia());
+    private int buscarIdLocalidad(Ubicacion ubicacion) throws JsonProcessingException {
+        int idPais = this.buscarId("pais");
+        int idProvincia = this.buscarId("provincia", idPais, ubicacion.getProvincia());
         int idMunicipio = this.buscarId("municipio", idProvincia, ubicacion.getMunicipio());
         int idLocalidad = this.buscarId("localidad", idMunicipio, ubicacion.getLocalidad());
         return idLocalidad;
     }
 
+    private int buscarId(String pais) throws JsonProcessingException {
+        WebClient client = null;
+        ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        Object auth = new Object();
+
+        Response response = client
+                .header("Content-Type", "application/json")
+                .authorization(token)
+                .get();
+
+        int status = response.getStatus();
+        System.out.println("Status: " + status);
+        String responseBody = response.readEntity(String.class);
+
+        if (status == 200) {
+            Pais newPais = mapper.readValue(responseBody, Pais.class);
+            return newPais.getId();
+        } else {
+            System.out.println("Error response = " + responseBody);
+            throw new BadResponseException("Error en la llamada a /api/user");
+        }
+    }
     private int buscarId(String variable, int id, Ubicacion ubicacion) throws Exception {
         WebClient client = null;
         ObjectMapper mapper = new ObjectMapper();
@@ -63,7 +88,7 @@ public class APIDistanciaService {
 
         } else {
             System.out.println("Error response = " + responseBody);
-            throw new Exception("Error en la llamada de búsqueda de " + variable);
+            throw new BadResponseException("Error en la llamada de búsqueda de " + variable);
         }
     }
     public Float medirDistancia(Ubicacion ubicacion1, Ubicacion ubicacion2) throws Exception {

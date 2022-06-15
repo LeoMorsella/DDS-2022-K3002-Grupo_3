@@ -1,19 +1,28 @@
 package HuellaDeCarbono.Organizacion;
 
 public class Ubicacion {
+
+    String pais;
     String provincia;
-
     String municipio; // Municipio
-
     String localidad;
     String calle;
     String altura;
 
-    public Ubicacion(String provincia, String municipio, String localidad, String calle, String altura) {
+    public Ubicacion(String pais, String provincia, String municipio, String localidad, String calle, String altura) {
+        this.pais = pais;
         this.provincia = provincia;
         this.municipio = municipio;
         this.calle = calle;
         this.altura = altura;
+    }
+
+    public String getPais() {
+        return pais;
+    }
+
+    public void setPais(String pais) {
+        this.pais = pais;
     }
 
     public String getProvincia() {

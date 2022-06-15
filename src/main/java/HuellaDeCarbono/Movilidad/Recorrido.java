@@ -8,6 +8,14 @@ public class Recorrido {
 
     ArrayList<Trayecto> trayectos;
 
+    public ArrayList<Trayecto> getTrayectos() {
+        return trayectos;
+    }
+
+    public void setTrayectos(ArrayList<Trayecto> trayectos) {
+        this.trayectos = trayectos;
+    }
+
     public void asociarA(Miembro miembro){
         miembro.recorrido.add(trayectos);
     }

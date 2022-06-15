@@ -10,9 +10,19 @@ public class APIDistanciaTest {
 
     @Test
     public void testDistanciaValida() throws Exception {
-        Ubicacion ubicacion1Test = new Ubicacion("Buenos Aires", "La Plata", "79", "1233");
 
-        Ubicacion ubicacion2Test = new Ubicacion("Cordoba", "Cordoba Capital", "101", "783");
+        String pais;
+        String provincia;
+        String municipio; // Municipio
+        String localidad;
+        String calle;
+        String altura;
+
+        Ubicacion ubicacion1Test = new Ubicacion("Argentina", "Buenos Aires",
+                "Capital Federal", "Caballito", "192", "1933");
+
+        Ubicacion ubicacion2Test = new Ubicacion("Argentina", "Cordoba",
+                "Cordoba Capital", "Nose", "115", "333");
 
         APIDistanciaService distanciaService = new APIDistanciaService();
         Assertions.assertDoesNotThrow(() -> distanciaService.medirDistancia(

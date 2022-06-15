@@ -1,4 +1,6 @@
-package HuellaDeCarbono.MedioDeTransporte;
+package HuellaDeCarbono.Repositorios;
+
+import HuellaDeCarbono.MedioDeTransporte.Parada;
 
 import java.util.ArrayList;
 import java.util.List;

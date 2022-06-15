@@ -2,15 +2,15 @@ package HuellaDeCarbono.CalculoDeDistancias;
 
 public class Pais {
 
-    private String id;
+    private Integer id;
 
     private String nombre;
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
