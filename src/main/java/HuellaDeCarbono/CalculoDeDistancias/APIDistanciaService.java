@@ -10,6 +10,16 @@ import javax.ws.rs.core.Response;
 import java.lang.Exception;
 import java.util.Objects;
 
+import HuellaDeCarbono.Organizacion.Ubicacion;
+import HuellaDeCarbono.UserExceptions.BadResponseException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.apache.cxf.jaxrs.client.WebClient;
+
+import javax.ws.rs.core.Response;
+import java.lang.Exception;
+import java.util.Objects;
+
 public class APIDistanciaService {
 
     private final String token = "Bearer 5PLixIkvvSuNT23px0g/L6iOS8N2R6gxj1nbTG1DrSo="; // hardcodeado para pruebas
@@ -26,7 +36,7 @@ public class APIDistanciaService {
         WebClient client = null;
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-        
+
         switch (variable) {
             case "pais":
                 client = WebClient.create("https://ddstpa.com.ar/api/paises?offset=1");
@@ -131,6 +141,6 @@ public class APIDistanciaService {
             System.out.println("Error response = " + responseBody);
             throw new Exception("Error en la llamada a /api/user");
         }
-}
+    }
 
 }

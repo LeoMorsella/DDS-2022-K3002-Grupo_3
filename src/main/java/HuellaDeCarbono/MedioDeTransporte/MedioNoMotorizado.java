@@ -11,4 +11,14 @@ public class MedioNoMotorizado extends Medio {
     public void setTipo(TipoMedioNoMotorizado tipo) {
         this.tipo = tipo;
     }
+
+    private String ID = "MNM";
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
 }

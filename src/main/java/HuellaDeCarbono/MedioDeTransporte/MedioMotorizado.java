@@ -4,8 +4,17 @@ public class MedioMotorizado extends Medio {
     private TipoVehiculoMotorizado tipoVehiculoMotorizado;
     private TipoCombustible tipoCombustible;
     private String patente;
+    private String ID = "MM";
     private Boolean esVehiculoMotorizado;
     private TipoServicio tipoServicio;
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
 
     public TipoVehiculoMotorizado getTipoVehiculoMotorizado() {
         return tipoVehiculoMotorizado;

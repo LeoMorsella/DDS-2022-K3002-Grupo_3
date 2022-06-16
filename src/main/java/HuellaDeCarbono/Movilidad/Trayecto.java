@@ -2,7 +2,6 @@ package HuellaDeCarbono.Movilidad;
 
 import HuellaDeCarbono.CalculoDeDistancias.APIDistanciaService;
 import HuellaDeCarbono.MedioDeTransporte.Medio;
-import HuellaDeCarbono.MedioDeTransporte.MedioMotorizado;
 import HuellaDeCarbono.Organizacion.Ubicacion;
 
 import static HuellaDeCarbono.Repositorios.RepositorioTrayectos.getRepositorio;
@@ -15,7 +14,7 @@ public class Trayecto {
 
     public Trayecto(Ubicacion salida, Ubicacion llegada, Medio medio){
         Trayecto nuevoTrayecto = new Trayecto(salida, llegada, medio);
-        if(medioTransporte.equals(new MedioMotorizado())) {
+        if(medioTransporte.getID()=="MM") {
             getRepositorio().agregarTrayecto(nuevoTrayecto);
         }
     }

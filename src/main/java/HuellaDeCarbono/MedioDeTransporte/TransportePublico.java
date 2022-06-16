@@ -11,6 +11,16 @@ public class TransportePublico extends Medio {
     public String linea;
     public ArrayList<Parada> paradas;
 
+    private String ID = "TP";
+
+    public String getID() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
     public TransportePublico(TipoTransportePublico tipo, String linea, ArrayList<Parada> list){
         this.tipoTransportePublico = tipo;
         this.linea = linea;
