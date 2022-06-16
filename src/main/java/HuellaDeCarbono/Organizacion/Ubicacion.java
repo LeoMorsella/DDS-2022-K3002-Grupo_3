@@ -4,7 +4,7 @@ public class Ubicacion {
 
     String pais;
     String provincia;
-    String municipio; // Municipio
+    String municipio;
     String localidad;
     String calle;
     String altura;
@@ -13,9 +13,11 @@ public class Ubicacion {
         this.pais = pais;
         this.provincia = provincia;
         this.municipio = municipio;
+        this.localidad = localidad;
         this.calle = calle;
         this.altura = altura;
     }
+
 
     public String getPais() {
         return pais;

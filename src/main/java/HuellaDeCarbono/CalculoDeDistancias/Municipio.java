@@ -4,7 +4,7 @@ public class Municipio {
 
     private Integer id;
 
-    private String name;
+    private String nombre;
 
     private Provincia provincia;
 
@@ -16,12 +16,12 @@ public class Municipio {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public Provincia getProvincia() {
@@ -32,3 +32,4 @@ public class Municipio {
         this.provincia = provincia;
     }
 }
+

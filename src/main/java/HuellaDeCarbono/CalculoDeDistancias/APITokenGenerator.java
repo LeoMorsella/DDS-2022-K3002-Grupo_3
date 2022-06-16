@@ -3,7 +3,6 @@ package HuellaDeCarbono.CalculoDeDistancias;
 import HuellaDeCarbono.UserExceptions.BadResponseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.deploy.xml.BadTokenException;
 import org.apache.cxf.jaxrs.client.WebClient;
 
 import javax.ws.rs.BadRequestException;

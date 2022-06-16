@@ -9,20 +9,13 @@ import org.junit.jupiter.api.Assertions;
 public class APIDistanciaTest {
 
     @Test
-    public void testDistanciaValida() throws Exception {
+    public void testDistanciaValida() {
 
-        String pais;
-        String provincia;
-        String municipio; // Municipio
-        String localidad;
-        String calle;
-        String altura;
+        Ubicacion ubicacion1Test = new Ubicacion("ARGENTINA", "MISIONES",
+                "MONTECARLO", "CARAGUATAY ", "maipu", "100");
 
-        Ubicacion ubicacion1Test = new Ubicacion("Argentina", "Buenos Aires",
-                "Capital Federal", "Caballito", "192", "1933");
-
-        Ubicacion ubicacion2Test = new Ubicacion("Argentina", "Cordoba",
-                "Cordoba Capital", "Nose", "115", "333");
+        Ubicacion ubicacion2Test = new Ubicacion("ARGENTINA", "MISIONES",
+                "MONTECARLO", "CARAGUATAY ", "maipu", "200");
 
         APIDistanciaService distanciaService = new APIDistanciaService();
         Assertions.assertDoesNotThrow(() -> distanciaService.medirDistancia(
