@@ -5,7 +5,10 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import java.io.FileInputStream;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 //Lectura de archivo Excel usando Api Apache Poi
     public class CargaDeMediciones {
@@ -47,63 +50,46 @@ import java.util.Iterator;
                 String periodicidad = null;
                 String periodoImputacion = null;
 
+                List<Medicion> listaMediciones = new ArrayList<>();
+
                 while (rowIterator.hasNext()) {
                     Row row = rowIterator.next();
+                    Medicion nuevaMedicion = new Medicion(actividad, tipoDeConsumo, valor, periodicidad, periodoImputacion);
 
                     Iterator<Cell> cellIterator = row.cellIterator();
-                    actividad = null;
-                    tipoDeConsumo = null;
-                    valor = 0;
-                    periodicidad = null;
-                    periodoImputacion = null;
                     while (cellIterator.hasNext()) {
+
                         Cell cell = cellIterator.next();
 
-                        switch (cell.getCellType()) {
-                            case NUMERIC:
+                        int numeroCelda = cell.getColumnIndex();
+                        switch (numeroCelda) {
+
+                            case 1:
+                                actividad = cell.getStringCellValue();
+                                break;
+                            case 2:
+                                tipoDeConsumo = cell.getStringCellValue();
+                                break;
+                            case 3:
                                 valor = cell.getNumericCellValue();
+                            case 4:
+                                periodicidad = cell.getStringCellValue();
                                 break;
-
-                            case STRING:
-                                int numeroCelda = cell.getColumnIndex();
-                                switch (numeroCelda) {
-
-                                    case 0:
-                                        actividad = cell.getStringCellValue();
-                                        break;
-                                    case 1:
-                                        tipoDeConsumo = cell.getStringCellValue();
-                                        break;
-                                    case 2:
-                                        valor = cell.getNumericCellValue();
-                                        break;
-                                    case 3:
-                                        periodicidad = cell.getStringCellValue();
-                                        break;
-                                    case 4:
-                                        periodoImputacion = cell.getStringCellValue();
-                                        break;
-                                }
+                            case 5:
+                                periodoImputacion = cell.getStringCellValue();
                                 break;
-
-
+                            default:
+                                //No hace nada porque el campo no es numerico
+                                break;
                         }
-
                     }
-                    Medicion nuevaMedicion = new Medicion(actividad, tipoDeConsumo,valor, periodicidad, periodoImputacion);
-
+                    listaMediciones.add(nuevaMedicion);
                 }
-                System.out.println("RowDatoActividad{" +
-                        "actividad='" + actividad + '\'' +
-                        ", tipoDeConsumo='" + tipoDeConsumo + '\'' +
-                        ", valor=" + valor + '\'' +
-                        ", periodicidad='" + periodicidad +  '\'' +
-                        ", periodoImputacion='" + periodoImputacion + '\'' +
-                        '}');
+                return listaMediciones;
+
             }catch (Exception e){
                 e.printStackTrace();
             }
-
             return null;
         }
     }
