@@ -32,7 +32,7 @@ import java.util.Iterator;
             return this;
         }
 
-        public String lecturaArchivo(int sheetNumber) {
+        public Object lecturaArchivo(int sheetNumber) {
             try {
                 sheet = workbook.getSheetAt(sheetNumber); // Obtiene la hoja de la posicion 0 (Hoja 1) del archivo
 
@@ -53,6 +53,7 @@ import java.util.Iterator;
                     Iterator<Cell> cellIterator = row.cellIterator();
                     actividad = null;
                     tipoDeConsumo = null;
+                    valor = 0;
                     periodicidad = null;
                     periodoImputacion = null;
                     while (cellIterator.hasNext()) {
@@ -72,9 +73,14 @@ import java.util.Iterator;
                                         break;
                                     case 1:
                                         tipoDeConsumo = cell.getStringCellValue();
+                                        break;
                                     case 2:
-                                        periodicidad = cell.getStringCellValue();
+                                        valor = cell.getNumericCellValue();
+                                        break;
                                     case 3:
+                                        periodicidad = cell.getStringCellValue();
+                                        break;
+                                    case 4:
                                         periodoImputacion = cell.getStringCellValue();
                                         break;
                                 }
@@ -84,16 +90,16 @@ import java.util.Iterator;
                         }
 
                     }
-                    Medicion nuevaMedicion = new Medicion(actividad, tipoDeConsumo, periodicidad, periodoImputacion);
+                    Medicion nuevaMedicion = new Medicion(actividad, tipoDeConsumo,valor, periodicidad, periodoImputacion);
 
                 }
-                return "RowDatoActividad{" +
-                        "actividad='" + actividad +
-                        ", tipoDeConsumo='" + tipoDeConsumo +
-                        ", valor=" + valor +
-                        ", periodicidad='" + periodicidad +
-                        ", periodoImputacion='" + periodoImputacion +
-                        '}';
+                System.out.println("RowDatoActividad{" +
+                        "actividad='" + actividad + '\'' +
+                        ", tipoDeConsumo='" + tipoDeConsumo + '\'' +
+                        ", valor=" + valor + '\'' +
+                        ", periodicidad='" + periodicidad +  '\'' +
+                        ", periodoImputacion='" + periodoImputacion + '\'' +
+                        '}');
             }catch (Exception e){
                 e.printStackTrace();
             }

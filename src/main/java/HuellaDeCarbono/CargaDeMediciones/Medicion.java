@@ -35,15 +35,7 @@ public class Medicion {
             return new Medicion(actividad, tipoDeConsumo, valor, periodicidad, periodoImputacion);
         }
 
-        public String toString() {
-            return "RowDatoActividad{" +
-                    "actividad='" + actividad +
-                    ", tipoDeConsumo='" + tipoDeConsumo +
-                    ", valor=" + valor +
-                    ", periodicidad='" + periodicidad +
-                    ", periodoImputacion='" + periodoImputacion +
-                    '}';
-        }
+
     }
 
 
