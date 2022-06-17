@@ -21,7 +21,7 @@ public class MiembroTest {
         miembrosPrueba.add(miembro);
         Area areaPrueba = new Area("AreaPrueba",miembrosPrueba,organizacionPrueba);
         miembro.registrarseA(areaPrueba);
-        Assertions.assertEquals(1,miembro.areas.size());
+        Assertions.assertEquals(1,miembro.getAreas().size());
 
     }
 }

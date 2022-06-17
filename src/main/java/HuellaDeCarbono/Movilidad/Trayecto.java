@@ -10,9 +10,9 @@ import HuellaDeCarbono.Repositorios.RepositorioTrayectos;
 import static HuellaDeCarbono.Repositorios.RepositorioTrayectos.getRepositorio;
 
 public class Trayecto {
-    Ubicacion puntoPartida;
-    Ubicacion puntoLlegada;
-    Medio medioTransporte;
+    private Ubicacion puntoPartida;
+    private Ubicacion puntoLlegada;
+    private Medio medioTransporte;
 
 
     static public Trayecto getTrayecto(Ubicacion salida, Ubicacion llegada, Medio medio){

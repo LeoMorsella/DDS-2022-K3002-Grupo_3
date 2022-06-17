@@ -7,7 +7,7 @@ import java.util.List;
 
 public class RepositorioServicioContratado {
   private static RepositorioServicioContratado instance = new RepositorioServicioContratado();
-  public List<TipoServicio> servicios;
+  private List<TipoServicio> servicios;
 
 
   private RepositorioServicioContratado() {
@@ -15,7 +15,15 @@ public class RepositorioServicioContratado {
 
   }
 
-  public static RepositorioServicioContratado getServiciosContratados() {
+  public List<TipoServicio> getServicios() {
+    return servicios;
+  }
+
+  public void setServicios(List<TipoServicio> servicios) {
+    this.servicios = servicios;
+  }
+
+  public static RepositorioServicioContratado getRepositorio() {
     return instance;
   }
 

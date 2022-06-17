@@ -2,7 +2,7 @@ package HuellaDeCarbono.MedioDeTransporte;
 
 public class MedioNoMotorizado extends Medio {
 
-    TipoMedioNoMotorizado tipo;
+    private TipoMedioNoMotorizado tipo;
 
     public TipoMedioNoMotorizado getTipo() {
         return tipo;

@@ -14,7 +14,16 @@ public class RepositorioRecorrido {
         this.recorridos = new ArrayList<>();
 
     }
-    public static RepositorioRecorrido getRecorridos() {
+
+    public List<Parada> getRecorridos() {
+        return recorridos;
+    }
+
+    public void setRecorridos(List<Parada> recorridos) {
+        this.recorridos = recorridos;
+    }
+
+    public static RepositorioRecorrido getRepositorio() {
         return instance;
     }
 

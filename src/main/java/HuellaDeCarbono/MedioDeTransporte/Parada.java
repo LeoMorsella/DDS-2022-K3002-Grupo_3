@@ -4,10 +4,10 @@ import HuellaDeCarbono.CalculoDeDistancias.Distancia;
 import HuellaDeCarbono.Organizacion.Ubicacion;
 
 public class Parada {
-    String nombre;
-    Ubicacion ubicacion;
+    private String nombre;
+    private Ubicacion ubicacion;
 
-    Distancia distanciaAProximaParada;
+    private Distancia distanciaAProximaParada;
 
     public Parada(String nom, Ubicacion ubi){
         this.nombre = nom;

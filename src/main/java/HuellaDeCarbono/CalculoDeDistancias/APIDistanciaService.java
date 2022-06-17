@@ -139,7 +139,7 @@ public class APIDistanciaService {
             return newDistancia.getValor();
         } else {
             System.out.println("Error response = " + responseBody);
-            throw new Exception("Error en la llamada a /api/user");
+            throw new BadResponseException("Error en la llamada a /api/user");
         }
     }
 

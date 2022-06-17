@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Recorrido {
 
-    ArrayList<Trayecto> trayectos = new ArrayList<Trayecto>();
+    private ArrayList<Trayecto> trayectos = new ArrayList<Trayecto>();
 
     public ArrayList<Trayecto> getTrayectos() {
         return trayectos;
@@ -17,7 +17,7 @@ public class Recorrido {
     }
 
     public void asociarA(Miembro miembro){
-        miembro.recorrido.add(trayectos);
+        miembro.getRecorrido().add(trayectos);
     }
 
     public void addTrayectos(ArrayList<Trayecto> nuevosTrayectos){

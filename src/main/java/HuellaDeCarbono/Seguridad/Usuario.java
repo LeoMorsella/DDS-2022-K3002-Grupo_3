@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class Usuario {
-    String username;
-    String password;
-    Rol rol;
-    int cantIntentos = 0;
-    Miembro miembro;
+    private String username;
+    private String password;
+    private Rol rol;
+    private int cantIntentos = 0;
+    private Miembro miembro;
 
     public Usuario(String username, String password, Rol unRol){
         this.validarCredencialesUser(username, password);

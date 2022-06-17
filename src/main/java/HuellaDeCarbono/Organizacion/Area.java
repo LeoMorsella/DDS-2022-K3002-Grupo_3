@@ -3,9 +3,9 @@ package HuellaDeCarbono.Organizacion;
 import java.util.ArrayList;
 
 public class Area {
-    public String nombre;
-    public ArrayList<Miembro> miembro;
-    public Organizacion organizacion;
+    private String nombre;
+    private  ArrayList<Miembro> miembro;
+    private  Organizacion organizacion;
 
     public Area(String nombre, ArrayList<Miembro> miembros,Organizacion organizacion) {
         this.nombre = nombre;

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 public class RepositorioTransportesPublicos {
   private static RepositorioTransportesPublicos instance = new RepositorioTransportesPublicos();
-  public List<TransportePublico> lineas;
+  private List<TransportePublico> lineas;
 
 
   private RepositorioTransportesPublicos() {
@@ -14,7 +14,15 @@ public class RepositorioTransportesPublicos {
 
   }
 
-  public static RepositorioTransportesPublicos getTransportesPublicos() {
+  public List<TransportePublico> getLineas() {
+    return lineas;
+  }
+
+  public void setLineas(List<TransportePublico> lineas) {
+    this.lineas = lineas;
+  }
+
+  public static RepositorioTransportesPublicos getRepositorio() {
     return instance;
   }
 

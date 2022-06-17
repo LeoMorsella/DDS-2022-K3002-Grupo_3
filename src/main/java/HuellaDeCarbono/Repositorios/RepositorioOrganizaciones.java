@@ -7,12 +7,20 @@ import java.util.List;
 
 public class RepositorioOrganizaciones {
   private static RepositorioOrganizaciones instance = new RepositorioOrganizaciones();
-  public List<Organizacion> organizaciones;
+  private List<Organizacion> organizaciones;
 
 
   private RepositorioOrganizaciones() {
     this.organizaciones = new ArrayList<>();
 
+  }
+
+  public List<Organizacion> getOrganizaciones() {
+    return organizaciones;
+  }
+
+  public void setOrganizaciones(List<Organizacion> organizaciones) {
+    this.organizaciones = organizaciones;
   }
 
   public static RepositorioOrganizaciones getRepositorio() {

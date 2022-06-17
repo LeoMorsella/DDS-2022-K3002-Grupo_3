@@ -7,7 +7,7 @@ import java.util.List;
 
 public class RepositorioParadas {
   private static RepositorioParadas instance = new RepositorioParadas();
-  public List<Parada> paradas;
+  private List<Parada> paradas;
 
 
   private RepositorioParadas() {
@@ -15,7 +15,15 @@ public class RepositorioParadas {
 
   }
 
-  public static RepositorioParadas getParadas() {
+  public List<Parada> getParadas() {
+    return paradas;
+  }
+
+  public void setParadas(List<Parada> paradas) {
+    this.paradas = paradas;
+  }
+
+  public static RepositorioParadas getRepositorio() {
     return instance;
   }
 

@@ -9,11 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Organizacion {
-    public String razonSocial;
-    public TipoOrg tipo;
-    public Ubicacion ubicacion;
-    public ArrayList<Area> areas;
-    public Clasificacion clasificacion;
+    private String razonSocial;
+    private TipoOrg tipo;
+    private Ubicacion ubicacion;
+    private ArrayList<Area> areas;
+    private Clasificacion clasificacion;
 
     private List<Medicion> mediciones;
 
@@ -71,7 +71,6 @@ public class Organizacion {
 
     public void generarTrayecto(Ubicacion salida, Ubicacion llegada, Medio medio){
         Trayecto nuevoTrayecto = new Trayecto(salida, llegada, medio);
-        //TODO: Revisar si los atributos del trayecto se reciben como parametro o los creamos nosotros
         RepositorioTrayectos.getRepositorio().agregarTrayecto(nuevoTrayecto);
     }
 

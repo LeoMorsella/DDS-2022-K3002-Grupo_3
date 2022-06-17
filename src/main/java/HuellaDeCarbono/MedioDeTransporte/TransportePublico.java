@@ -7,9 +7,9 @@ import HuellaDeCarbono.MedioDeTransporte.TipoTransportePublico;
 import java.util.ArrayList;
 
 public class TransportePublico extends Medio {
-    public TipoTransportePublico tipoTransportePublico;
-    public String linea;
-    public ArrayList<Parada> paradas;
+    private TipoTransportePublico tipoTransportePublico;
+    private String linea;
+    private  ArrayList<Parada> paradas;
 
     private String ID = "TP";
 
