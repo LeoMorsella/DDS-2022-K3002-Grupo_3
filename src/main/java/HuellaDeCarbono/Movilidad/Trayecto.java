@@ -2,7 +2,10 @@ package HuellaDeCarbono.Movilidad;
 
 import HuellaDeCarbono.CalculoDeDistancias.APIDistanciaService;
 import HuellaDeCarbono.MedioDeTransporte.Medio;
+import HuellaDeCarbono.MedioDeTransporte.MedioMotorizado;
 import HuellaDeCarbono.Organizacion.Ubicacion;
+import HuellaDeCarbono.Repositorios.RepositorioRecorrido;
+import HuellaDeCarbono.Repositorios.RepositorioTrayectos;
 
 import static HuellaDeCarbono.Repositorios.RepositorioTrayectos.getRepositorio;
 
@@ -12,11 +15,17 @@ public class Trayecto {
     Medio medioTransporte;
 
 
-    public Trayecto(Ubicacion salida, Ubicacion llegada, Medio medio){
-        Trayecto nuevoTrayecto = new Trayecto(salida, llegada, medio);
-        if(medioTransporte.getID()=="MM") {
-            getRepositorio().agregarTrayecto(nuevoTrayecto);
+    static public Trayecto getTrayecto(Ubicacion salida, Ubicacion llegada, Medio medio){
+        Trayecto trayectoNuevo = new Trayecto(salida, llegada, medio);
+        if(medio == new MedioMotorizado()){
+            RepositorioTrayectos.getRepositorio().agregarTrayecto(trayectoNuevo);
         }
+        return trayectoNuevo;
+    }
+    public Trayecto(Ubicacion salida, Ubicacion llegada, Medio medio){
+        this.puntoPartida = salida;
+        this.puntoLlegada = llegada;
+        this.medioTransporte = medio;
     }
 
     public Ubicacion getPuntoPartida() {

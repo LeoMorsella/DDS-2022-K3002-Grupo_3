@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Recorrido {
 
-    ArrayList<Trayecto> trayectos;
+    ArrayList<Trayecto> trayectos = new ArrayList<Trayecto>();
 
     public ArrayList<Trayecto> getTrayectos() {
         return trayectos;
@@ -25,7 +25,7 @@ public class Recorrido {
     }
 
     public Float distanciaTotal() throws Exception {
-        Float distanciaTotal = Float.valueOf(0);
+        Float distanciaTotal = Float.parseFloat("0");
         for (Trayecto trayecto : trayectos){
             distanciaTotal = distanciaTotal + trayecto.distanciaMedia();
         }

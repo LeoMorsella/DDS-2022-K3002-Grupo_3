@@ -5,7 +5,6 @@ import HuellaDeCarbono.Movilidad.Trayecto;
 import java.util.ArrayList;
 import java.util.List;
 
-//Cambiar por repositorioRecorridos
 public class RepositorioTrayectos {
   private static RepositorioTrayectos instance = new RepositorioTrayectos();
   public List<Trayecto> trayectos;
