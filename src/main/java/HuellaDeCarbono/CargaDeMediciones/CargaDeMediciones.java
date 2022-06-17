@@ -1,14 +1,16 @@
 package HuellaDeCarbono.CargaDeMediciones;
 
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
+import HuellaDeCarbono.Organizacion.Medicion;
+import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
 import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 //Lectura de archivo Excel usando Api Apache Poi
     public class CargaDeMediciones {
@@ -35,63 +37,60 @@ import java.util.List;
             return this;
         }
 
-        public Object lecturaArchivo(int sheetNumber) {
-            try {
-                sheet = workbook.getSheetAt(sheetNumber); // Obtiene la hoja de la posicion 0 (Hoja 1) del archivo
+        public List<Medicion> lecturaArchivo2(int sheetNumber) {
 
-                // Empieza a iterar entre filas y celdas
-                Iterator<Row> rowIterator = sheet.iterator();
-                rowIterator.next();
-                rowIterator.next(); // Evita leer las dos primeras filas(Titulos)
+            DataFormatter formatter = new DataFormatter();
+            Sheet sheet1 = workbook.getSheetAt(sheetNumber);
 
-                String actividad = null;
-                String tipoDeConsumo = null;
-                double valor = 0;
-                String periodicidad = null;
-                String periodoImputacion = null;
+            Pattern pattern;
+            Matcher matcher = null;
 
-                List<Medicion> listaMediciones = new ArrayList<>();
+            String actividad = null;
+            String tipoDeConsumo = null;
+            String valor = null;
+            String periodicidad = null;
+            String periodoImputacion = null;
 
-                while (rowIterator.hasNext()) {
-                    Row row = rowIterator.next();
-                    Medicion nuevaMedicion = new Medicion(actividad, tipoDeConsumo, valor, periodicidad, periodoImputacion);
+            List<Medicion> listaMediciones = new ArrayList<>();
+            Medicion nuevaMedicion;
 
-                    Iterator<Cell> cellIterator = row.cellIterator();
-                    while (cellIterator.hasNext()) {
+            final String primerasFilas = "^[A-E]1|^[A-E]2";
+            pattern = Pattern.compile(primerasFilas);
 
-                        Cell cell = cellIterator.next();
+            for (Row row : sheet1) {
+                for (Cell cell : row) {
 
-                        int numeroCelda = cell.getColumnIndex();
-                        switch (numeroCelda) {
+                    CellReference cellRef = new CellReference(row.getRowNum(), cell.getColumnIndex());
+                    String celdaReferencia = cellRef.formatAsString();
+                    matcher = pattern.matcher(cellRef.formatAsString());
 
-                            case 1:
-                                actividad = cell.getStringCellValue();
-                                break;
-                            case 2:
-                                tipoDeConsumo = cell.getStringCellValue();
-                                break;
-                            case 3:
-                                valor = cell.getNumericCellValue();
-                            case 4:
-                                periodicidad = cell.getStringCellValue();
-                                break;
-                            case 5:
-                                periodoImputacion = cell.getStringCellValue();
-                                break;
-                            default:
-                                //No hace nada porque el campo no es numerico
-                                break;
+                    if (!matcher.matches()) {
+                        if (celdaReferencia.contains("A")) {
+                            actividad = formatter.formatCellValue(cell);
+                        }
+                        if (celdaReferencia.contains("B")) {
+                            tipoDeConsumo = formatter.formatCellValue(cell);
+                        }
+                        if (celdaReferencia.contains("C")) {
+                            valor = formatter.formatCellValue(cell);
+                        }
+                        if (celdaReferencia.contains("D")) {
+                            periodicidad = formatter.formatCellValue(cell);
+                        }
+                        if (celdaReferencia.contains("E")) {
+                            periodoImputacion = formatter.formatCellValue(cell);
                         }
                     }
+                }
+                if (!matcher.matches()) {
+                    nuevaMedicion = new Medicion(actividad, tipoDeConsumo, valor, periodicidad, periodoImputacion);
                     listaMediciones.add(nuevaMedicion);
                 }
-                return listaMediciones;
-
-            }catch (Exception e){
-                e.printStackTrace();
             }
-            return null;
+            return listaMediciones;
         }
+
     }
+
 
 

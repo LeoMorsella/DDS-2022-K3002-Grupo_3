@@ -1,11 +1,9 @@
-package APITests;
+package APIDistanciaTests;
 
 import HuellaDeCarbono.CalculoDeDistancias.*;
 
-import HuellaDeCarbono.UserExceptions.BadResponseException;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.function.Executable;
 
 public class APITokenTest {
 

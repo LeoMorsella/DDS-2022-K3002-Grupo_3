@@ -1,7 +1,6 @@
-package APITests;
+package APIDistanciaTests;
 
 import HuellaDeCarbono.CalculoDeDistancias.APIDistanciaService;
-import HuellaDeCarbono.CalculoDeDistancias.APITokenGenerator;
 import HuellaDeCarbono.Organizacion.Ubicacion;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
