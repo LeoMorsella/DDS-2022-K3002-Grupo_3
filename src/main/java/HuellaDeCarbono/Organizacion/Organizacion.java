@@ -1,10 +1,12 @@
 package HuellaDeCarbono.Organizacion;
 
+import HuellaDeCarbono.CargaDeMediciones.CargaDeMediciones;
 import HuellaDeCarbono.MedioDeTransporte.Medio;
 import HuellaDeCarbono.Repositorios.RepositorioTrayectos;
 import HuellaDeCarbono.Movilidad.Trayecto;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Organizacion {
     public String razonSocial;
@@ -12,6 +14,8 @@ public class Organizacion {
     public Ubicacion ubicacion;
     public ArrayList<Area> areas;
     public Clasificacion clasificacion;
+
+    private List<Medicion> mediciones;
 
     public String getRazonSocial() {
         return razonSocial;
@@ -71,8 +75,13 @@ public class Organizacion {
         RepositorioTrayectos.getRepositorio().agregarTrayecto(nuevoTrayecto);
     }
 
-    /* public void cargarMediciones(){
-
+    public void cargarMediciones(String DireccionExcel) {
+        String filePath = DireccionExcel;
+        CargaDeMediciones cargaMediciones = new CargaDeMediciones();
+        cargaMediciones.useExistingWorkbook(filePath);
+        List<Medicion> nuevasMediciones = cargaMediciones.lecturaArchivo(0);
+        for (Medicion medicion : nuevasMediciones){
+            mediciones.add(medicion);
+        }
     }
-     */
 }

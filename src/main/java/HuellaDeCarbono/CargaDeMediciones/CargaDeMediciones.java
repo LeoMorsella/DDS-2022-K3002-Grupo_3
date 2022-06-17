@@ -21,7 +21,6 @@ import java.util.regex.Pattern;
         private String xlFilePath;
 
         public CargaDeMediciones(){
-            //Do nothing
         }
 
         public CargaDeMediciones useExistingWorkbook(String filePath) {
@@ -37,7 +36,7 @@ import java.util.regex.Pattern;
             return this;
         }
 
-        public List<Medicion> lecturaArchivo2(int sheetNumber) {
+        public List<Medicion> lecturaArchivo(int sheetNumber) {
 
             DataFormatter formatter = new DataFormatter();
             Sheet sheet1 = workbook.getSheetAt(sheetNumber);
