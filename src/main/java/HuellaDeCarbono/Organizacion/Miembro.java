@@ -10,7 +10,7 @@ public class Miembro {
     private String nombre;
     private String apellido;
     private String tipoDoc;
-    private int numDoc;
+    private String numDoc;
     private ArrayList<Area> areas;
     private ArrayList<ArrayList<Trayecto>> recorrido;
 
