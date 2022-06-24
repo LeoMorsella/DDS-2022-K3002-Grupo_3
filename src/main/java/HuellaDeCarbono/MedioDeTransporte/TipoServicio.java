@@ -12,3 +12,5 @@ public class TipoServicio {
         this.tipo = tipo;
     }
 }
+
+//TODO: Eliminar esta clase, solo es un string
