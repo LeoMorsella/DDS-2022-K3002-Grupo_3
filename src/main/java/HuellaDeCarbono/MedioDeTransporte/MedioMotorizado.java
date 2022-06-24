@@ -6,7 +6,7 @@ public class MedioMotorizado extends Medio {
     private String patente;
     private String ID = "MM";
     private Boolean esServicioContratado;
-    private TipoServicio tipoServicio;
+    private String tipoServicio;
 
     public String getID() {
         return ID;
@@ -48,11 +48,11 @@ public class MedioMotorizado extends Medio {
         this.esServicioContratado = esServicioContratado;
     }
 
-    public TipoServicio getTipoServicio() {
+    public String getTipoServicio() {
         return tipoServicio;
     }
 
-    public void setTipoServicio(TipoServicio tipoServicio) {
+    public void setTipoServicio(String tipoServicio) {
         this.tipoServicio = tipoServicio;
     }
 }
