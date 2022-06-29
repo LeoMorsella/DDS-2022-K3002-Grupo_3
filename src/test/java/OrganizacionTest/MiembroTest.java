@@ -1,10 +1,9 @@
 package OrganizacionTest;
 
 import HuellaDeCarbono.Movilidad.Trayecto;
-import HuellaDeCarbono.Organizacion.*;
+import HuellaDeCarbono.ManejoAmbiental.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.mockito.internal.matchers.Or;
 
 import java.util.ArrayList;
 

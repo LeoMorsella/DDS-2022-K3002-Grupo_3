@@ -3,11 +3,8 @@ package HuellaDeCarbono.Movilidad;
 import HuellaDeCarbono.CalculoDeDistancias.APIDistanciaService;
 import HuellaDeCarbono.MedioDeTransporte.Medio;
 import HuellaDeCarbono.MedioDeTransporte.MedioMotorizado;
-import HuellaDeCarbono.Organizacion.Ubicacion;
-import HuellaDeCarbono.Repositorios.RepositorioRecorrido;
+import HuellaDeCarbono.ManejoAmbiental.Ubicacion;
 import HuellaDeCarbono.Repositorios.RepositorioTrayectos;
-
-import static HuellaDeCarbono.Repositorios.RepositorioTrayectos.getRepositorio;
 
 public class Trayecto {
     private Ubicacion puntoPartida;

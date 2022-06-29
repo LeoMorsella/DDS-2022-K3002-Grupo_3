@@ -1,13 +1,11 @@
 package APIDistanciaTests;
 
-import HuellaDeCarbono.CalculoDeDistancias.APITokenGenerator;
 import HuellaDeCarbono.MedioDeTransporte.MedioMotorizado;
 import HuellaDeCarbono.MedioDeTransporte.MedioNoMotorizado;
 import HuellaDeCarbono.Movilidad.Recorrido;
 import HuellaDeCarbono.Movilidad.Trayecto;
-import HuellaDeCarbono.Organizacion.Ubicacion;
+import HuellaDeCarbono.ManejoAmbiental.Ubicacion;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 
 import java.util.ArrayList;
 

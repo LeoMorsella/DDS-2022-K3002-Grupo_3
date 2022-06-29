@@ -1,6 +1,6 @@
 package HuellaDeCarbono.CargaDeMediciones;
 
-import HuellaDeCarbono.Organizacion.Medicion;
+import HuellaDeCarbono.ManejoAmbiental.Medicion;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.usermodel.XSSFSheet;

@@ -1,4 +1,4 @@
-package HuellaDeCarbono.Organizacion;
+package HuellaDeCarbono.ManejoAmbiental;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,7 @@ public class Area {
     private String nombre;
     private  ArrayList<Miembro> miembro;
     private  Organizacion organizacion;
+    private  ArrayList<Medicion> mediciones;
 
     public Area(String nombre, ArrayList<Miembro> miembros,Organizacion organizacion) {
         this.nombre = nombre;
@@ -36,4 +37,14 @@ public class Area {
     public void setOrganizacion(Organizacion organizacion) {
         this.organizacion = organizacion;
     }
+
+    public void setMediciones(ArrayList<Medicion> mediciones) {
+        this.mediciones = mediciones;
+    }
+
+    public ArrayList<Medicion> getMediciones() {
+        return mediciones;
+    }
+
+    //TODO calculo de huella por mediciones
 }

@@ -1,4 +1,4 @@
-package HuellaDeCarbono.Organizacion;
+package HuellaDeCarbono.ManejoAmbiental;
 
 import HuellaDeCarbono.CargaDeMediciones.CargaDeMediciones;
 import HuellaDeCarbono.MedioDeTransporte.Medio;
@@ -6,6 +6,7 @@ import HuellaDeCarbono.Repositorios.RepositorioTrayectos;
 import HuellaDeCarbono.Movilidad.Trayecto;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Organizacion {
@@ -14,8 +15,11 @@ public class Organizacion {
     private Ubicacion ubicacion;
     private ArrayList<Area> areas;
     private Clasificacion clasificacion;
-
-    private List<Medicion> mediciones;
+    private HashMap<Medicion,Miembro> mediciones;
+    private ArrayList<Miembro> contactos;
+    private SectorTerritorial sectorTerritorial;
+    //TODO ver si es conveniente manejarlo como hashmap o listas separadas
+    private ArrayList<Medicion> medicions;
 
     public String getRazonSocial() {
         return razonSocial;
@@ -57,6 +61,30 @@ public class Organizacion {
         this.clasificacion = clasificacion;
     }
 
+    public SectorTerritorial getSectorTerritorial() {
+        return sectorTerritorial;
+    }
+
+    public HashMap<Medicion, Miembro> getMediciones() {
+        return mediciones;
+    }
+
+    public ArrayList<Miembro> getContactos() {
+        return contactos;
+    }
+
+    public void setSectorTerritorial(SectorTerritorial sectorTerritorial) {
+        this.sectorTerritorial = sectorTerritorial;
+    }
+
+    public void setContactos(ArrayList<Miembro> contactos) {
+        this.contactos = contactos;
+    }
+
+    public void setMediciones(HashMap<Medicion, Miembro> mediciones) {
+        this.mediciones = mediciones;
+    }
+
     public Organizacion(String razon, TipoOrg tipoOrganizacion, Ubicacion ubi, ArrayList<Area> areas, Clasificacion clasi){
         this.razonSocial = razon;
         this.tipo = tipoOrganizacion;
@@ -80,7 +108,7 @@ public class Organizacion {
         cargaMediciones.useExistingWorkbook(filePath);
         List<Medicion> nuevasMediciones = cargaMediciones.lecturaArchivo(0);
         for (Medicion medicion : nuevasMediciones){
-            mediciones.add(medicion);
+            medicions.add(medicion);
         }
     }
 }

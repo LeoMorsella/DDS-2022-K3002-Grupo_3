@@ -1,17 +1,12 @@
 package ContraseñasTest;
 
-import HuellaDeCarbono.Movilidad.Trayecto;
-import HuellaDeCarbono.Organizacion.Area;
-import HuellaDeCarbono.Organizacion.Miembro;
-import HuellaDeCarbono.Organizacion.Rol;
+import HuellaDeCarbono.Seguridad.Rol;
 import HuellaDeCarbono.Seguridad.Usuario;
 import HuellaDeCarbono.UserExceptions.EasyPasswordException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.UUID;
 
 public class ContraseñasTest {
 

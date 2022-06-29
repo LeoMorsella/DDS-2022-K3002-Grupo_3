@@ -1,18 +1,17 @@
-package HuellaDeCarbono.Organizacion;
+package HuellaDeCarbono.ManejoAmbiental;
 
 import HuellaDeCarbono.Movilidad.Trayecto;
-import HuellaDeCarbono.Seguridad.ValidadorContrasenias;
 
 import java.util.ArrayList;
-import java.util.concurrent.TimeUnit;
 
 public class Miembro {
     private String nombre;
     private String apellido;
     private String tipoDoc;
-    private String numDoc;
+    private int numDoc;
     private ArrayList<Area> areas;
     private ArrayList<ArrayList<Trayecto>> recorrido;
+    private ArrayList<Medicion> mediciones;
 
     public String getNombre() {
         return nombre;
@@ -42,6 +41,10 @@ public class Miembro {
         return numDoc;
     }
 
+    public ArrayList<Medicion> getMediciones() {
+        return mediciones;
+    }
+
     public void setNumDoc(int numDoc) {
         this.numDoc = numDoc;
     }
@@ -60,6 +63,10 @@ public class Miembro {
 
     public void setRecorrido(ArrayList<ArrayList<Trayecto>> recorrido) {
         this.recorrido = recorrido;
+    }
+
+    public void setMediciones(ArrayList<Medicion> mediciones) {
+        this.mediciones = mediciones;
     }
 
     public Miembro(String nom, String ape, String tipoDocu, int numeroDoc, ArrayList<Area> listaAreas,

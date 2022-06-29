@@ -1,11 +1,7 @@
 package HuellaDeCarbono.Seguridad;
 
-import HuellaDeCarbono.Movilidad.Trayecto;
-import HuellaDeCarbono.Organizacion.Area;
-import HuellaDeCarbono.Organizacion.Miembro;
-import HuellaDeCarbono.Organizacion.Rol;
+import HuellaDeCarbono.ManejoAmbiental.Miembro;
 
-import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
 public class Usuario {

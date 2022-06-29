@@ -1,6 +1,6 @@
 package HuellaDeCarbono.Movilidad;
 
-import HuellaDeCarbono.Organizacion.Miembro;
+import HuellaDeCarbono.ManejoAmbiental.Miembro;
 
 import java.util.ArrayList;
 

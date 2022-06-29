@@ -1,6 +1,4 @@
-package HuellaDeCarbono.Organizacion;
-
-import org.apache.poi.ss.usermodel.Row;
+package HuellaDeCarbono.ManejoAmbiental;
 
 public class Medicion {
 

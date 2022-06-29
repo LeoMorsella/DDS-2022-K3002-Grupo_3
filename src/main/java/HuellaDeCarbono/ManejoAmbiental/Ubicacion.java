@@ -1,4 +1,4 @@
-package HuellaDeCarbono.Organizacion;
+package HuellaDeCarbono.ManejoAmbiental;
 
 public class Ubicacion {
 

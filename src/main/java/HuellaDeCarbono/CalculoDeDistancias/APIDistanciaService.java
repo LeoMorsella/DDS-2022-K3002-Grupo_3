@@ -1,16 +1,6 @@
 package HuellaDeCarbono.CalculoDeDistancias;
 
-import HuellaDeCarbono.Organizacion.Ubicacion;
-import HuellaDeCarbono.UserExceptions.BadResponseException;
-import com.fasterxml.jackson.databind.DeserializationFeature;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.cxf.jaxrs.client.WebClient;
-
-import javax.ws.rs.core.Response;
-import java.lang.Exception;
-import java.util.Objects;
-
-import HuellaDeCarbono.Organizacion.Ubicacion;
+import HuellaDeCarbono.ManejoAmbiental.Ubicacion;
 import HuellaDeCarbono.UserExceptions.BadResponseException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

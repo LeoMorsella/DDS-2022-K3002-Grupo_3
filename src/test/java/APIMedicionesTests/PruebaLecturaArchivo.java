@@ -1,10 +1,8 @@
 package APIMedicionesTests;
 
-import HuellaDeCarbono.CalculoDeDistancias.APITokenGenerator;
 import HuellaDeCarbono.CargaDeMediciones.CargaDeMediciones;
-import HuellaDeCarbono.Organizacion.Medicion;
+import HuellaDeCarbono.ManejoAmbiental.Medicion;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 
 import java.util.List;
 
