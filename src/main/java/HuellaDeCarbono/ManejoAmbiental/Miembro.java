@@ -86,4 +86,15 @@ public class Miembro {
             areas.add(area);
 
     }
+
+    public double impactoPersonal() {
+        double huella = 0;
+
+        for (Medicion medicion:mediciones)
+        {
+            huella = medicion.getValor() + huella;
+        }
+
+        return huella;
+    }
 }
