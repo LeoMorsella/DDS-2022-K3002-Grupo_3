@@ -1,6 +1,7 @@
 package HuellaDeCarbono.Seguridad;
 
 import HuellaDeCarbono.ManejoAmbiental.Miembro;
+import HuellaDeCarbono.Repositorios.RepositorioUsuarios;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,6 +12,11 @@ public class Usuario {
     private int cantIntentos = 0;
     private Miembro miembro;
 
+    public static Usuario nuevoUsuario(String username, String password, Rol unrol){
+        Usuario nuevoUsuario = new Usuario(username, password, unrol);
+        RepositorioUsuarios.getRepositorio().agregarUsuario(nuevoUsuario);
+        return nuevoUsuario;
+    }
     public Usuario(String username, String password, Rol unRol){
         this.validarCredencialesUser(username, password);
         this.rol = unRol;

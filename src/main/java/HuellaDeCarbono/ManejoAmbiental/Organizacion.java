@@ -16,10 +16,10 @@ public class Organizacion {
     private ArrayList<Area> areas;
     private Clasificacion clasificacion;
     private HashMap<Medicion,Miembro> mediciones;
-    private ArrayList<Miembro> contactos;
+    private ArrayList<Miembro> contactos = null;
     private SectorTerritorial sectorTerritorial;
     //TODO ver si es conveniente manejarlo como hashmap o listas separadas
-    private ArrayList<Medicion> medicions;
+    //private ArrayList<Medicion> mediciones;
 
     public String getRazonSocial() {
         return razonSocial;
@@ -80,6 +80,9 @@ public class Organizacion {
     public void setContactos(ArrayList<Miembro> contactos) {
         this.contactos = contactos;
     }
+    public void agregarContacto(Miembro Contacto){
+        contactos.add(Contacto);
+    }
 
     public void setMediciones(HashMap<Medicion, Miembro> mediciones) {
         this.mediciones = mediciones;
@@ -102,13 +105,14 @@ public class Organizacion {
         RepositorioTrayectos.getRepositorio().agregarTrayecto(nuevoTrayecto);
     }
 
-    public void cargarMediciones(String DireccionExcel) {
+    //TODO cambiar este método para que se cargue tambien en las areas y miembros
+    /*public void cargarMediciones(String DireccionExcel, miembro) {
         String filePath = DireccionExcel;
         CargaDeMediciones cargaMediciones = new CargaDeMediciones();
         cargaMediciones.useExistingWorkbook(filePath);
         List<Medicion> nuevasMediciones = cargaMediciones.lecturaArchivo(0);
         for (Medicion medicion : nuevasMediciones){
-            medicions.add(medicion);
-        }
-    }
+            mediciones.add(medicion);
+        }*/
+    //}
 }

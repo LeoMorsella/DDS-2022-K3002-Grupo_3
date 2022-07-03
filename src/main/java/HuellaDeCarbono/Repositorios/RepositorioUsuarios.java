@@ -15,11 +15,11 @@ public class RepositorioUsuarios {
 
     }
 
-    public ArrayList<Usuario> getParadas() {
+    public ArrayList<Usuario> getUsuarios() {
         return usuarios;
     }
 
-    public void setParadas(ArrayList<Usuario> usuarios) {
+    public void setUsuarios(ArrayList<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
 
@@ -27,7 +27,7 @@ public class RepositorioUsuarios {
         return instance;
     }
 
-    public void agregarParada(Usuario user){
+    public void agregarUsuario(Usuario user){
         this.usuarios.add(user);
     }
 }

@@ -21,7 +21,6 @@ public class DistanciasTest {
                 "MONTECARLO", "CARAGUATAY ", "maipu", "300");
         Ubicacion ubicacion2Final = new Ubicacion("ARGENTINA", "MISIONES",
                 "MONTECARLO", "CARAGUATAY ", "maipu", "400");
-        Recorrido recorridoPrueba = new Recorrido();
         Trayecto trayectoPrueba1 = Trayecto.getTrayecto(ubicacion1Inic, ubicacion1Inic, new MedioMotorizado());
         Trayecto trayectoPrueba2 = Trayecto.getTrayecto(ubicacion2Inic, ubicacion2Final, new MedioNoMotorizado());
 
@@ -29,7 +28,7 @@ public class DistanciasTest {
         trayectos.add(trayectoPrueba1);
         trayectos.add(trayectoPrueba2);
 
-        recorridoPrueba.addTrayectos(trayectos);
+        Recorrido recorridoPrueba = Recorrido.nuevoRecorrido(trayectos);
         System.out.println(trayectoPrueba1.distanciaMedia());
         System.out.println(trayectoPrueba2.distanciaMedia());
 
