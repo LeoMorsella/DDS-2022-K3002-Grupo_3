@@ -80,12 +80,15 @@ public class Miembro {
 
     }
 
+    public void agregarMedicion(Medicion medicion){
+        mediciones.add(medicion);
+    }
 
     public void registrarseA(Area area) {
-
             areas.add(area);
-
     }
+
+
 
     public double impactoPersonal() {
         double huella = 0;

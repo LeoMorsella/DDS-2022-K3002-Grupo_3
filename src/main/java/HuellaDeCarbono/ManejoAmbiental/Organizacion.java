@@ -105,14 +105,20 @@ public class Organizacion {
         RepositorioTrayectos.getRepositorio().agregarTrayecto(nuevoTrayecto);
     }
 
-    //TODO cambiar este método para que se cargue tambien en las areas y miembros
-    /*public void cargarMediciones(String DireccionExcel, miembro) {
+
+    //Esta mal porque se agregan todas las mediciones a un mismo miembro
+    public void cargarMediciones(String DireccionExcel, Miembro miembro) {
         String filePath = DireccionExcel;
         CargaDeMediciones cargaMediciones = new CargaDeMediciones();
         cargaMediciones.useExistingWorkbook(filePath);
         List<Medicion> nuevasMediciones = cargaMediciones.lecturaArchivo(0);
         for (Medicion medicion : nuevasMediciones){
-            mediciones.add(medicion);
-        }*/
-    //}
+            mediciones.put(medicion, miembro);
+            miembro.agregarMedicion(medicion);
+            ArrayList<Area> Areas = miembro.getAreas();
+            for (Area area: Areas){
+                area.agregarMedicion(medicion);
+            }
+        }
+    }
 }

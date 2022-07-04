@@ -31,7 +31,7 @@ public class MiembroTest {
         Organizacion organizacionPrueba = new Organizacion("SA", TipoOrg.EMPRESA,ubicacion,areasPrueba,Clasificacion.MINISTERIO);
         ArrayList<ArrayList<Trayecto>> recorrido = new ArrayList<>();
         Miembro miembro = new Miembro("Juan","Perez","DNI",123456789,areasPrueba,recorrido);
-        Medicion medicion = new Medicion("Electricidad adquirida y consumida","Electricidad","2000","Diaria","30");
+        Medicion medicion = new Medicion("Electricidad adquirida y consumida","m3","Electricidad","2000","Diaria","30");
         ArrayList<Medicion> medicions = new ArrayList<>();
         medicions.add(medicion);
         miembro.setMediciones(medicions);

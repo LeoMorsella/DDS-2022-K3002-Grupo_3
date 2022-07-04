@@ -49,6 +49,7 @@ import java.util.regex.Pattern;
             String valor = null;
             String periodicidad = null;
             String periodoImputacion = null;
+            String unidad = null;
 
             List<Medicion> listaMediciones = new ArrayList<>();
             Medicion nuevaMedicion;
@@ -74,15 +75,18 @@ import java.util.regex.Pattern;
                             valor = formatter.formatCellValue(cell);
                         }
                         if (celdaReferencia.contains("D")) {
-                            periodicidad = formatter.formatCellValue(cell);
+                            unidad = formatter.formatCellValue(cell);
                         }
                         if (celdaReferencia.contains("E")) {
+                            periodicidad = formatter.formatCellValue(cell);
+                        }
+                        if (celdaReferencia.contains("F")){
                             periodoImputacion = formatter.formatCellValue(cell);
                         }
                     }
                 }
                 if (!matcher.matches()) {
-                    nuevaMedicion = new Medicion(actividad, tipoDeConsumo, valor, periodicidad, periodoImputacion);
+                    nuevaMedicion = new Medicion(actividad, unidad, tipoDeConsumo, valor, periodicidad, periodoImputacion);
                     listaMediciones.add(nuevaMedicion);
                 }
             }

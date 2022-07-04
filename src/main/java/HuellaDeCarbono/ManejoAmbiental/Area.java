@@ -46,5 +46,7 @@ public class Area {
         return mediciones;
     }
 
-    //TODO calculo de huella por mediciones
+    public void agregarMedicion(Medicion medicion){
+        mediciones.add(medicion);
+    }
 }
