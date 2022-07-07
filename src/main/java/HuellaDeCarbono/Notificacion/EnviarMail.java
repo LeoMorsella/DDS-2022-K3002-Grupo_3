@@ -1,6 +1,5 @@
 package HuellaDeCarbono.Notificacion;
 
-import java.util.Properties;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.MessagingException;
@@ -12,6 +11,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
+import java.util.Properties;
 
 public class EnviarMail {
 
@@ -22,17 +22,22 @@ public class EnviarMail {
     private static final String password = "ykatrutioevxttcd";
 
     static {
-        prop.put("mail.smtp.auth", true);
+        prop.put("mail.smtp.auth", "true");
         prop.put("mail.smtp.host", "smtp.gmail.com");
-        prop.put("mail.smtp.port", "587");
+        prop.put("mail.smtp.port", "465");
         prop.put("mail.smtp.starttls.enable", "true"); //TLS
+        prop.put("mail.smtp.ssl.trust", "smtp.gmail.com");
+        prop.put("mail.transport.protocol", "smtp");
+        prop.put("mail.smtp.starttls.required", "true");
+        prop.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
 
-        session = Session.getInstance(prop, new Authenticator() {
-            @Override
-            protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication(username, password);
-            }
-        });
+        session = Session.getDefaultInstance(prop,
+                new javax.mail.Authenticator() {
+                    //Authenticating the password
+                    protected PasswordAuthentication getPasswordAuthentication() {
+                        return new PasswordAuthentication(username, password);
+                    }
+                });
     }
 
     public void send(String to) {
@@ -53,7 +58,6 @@ public class EnviarMail {
             multipart.addBodyPart(mimeBodyPart);
 
             message.setContent(multipart);
-
             Transport.send(message);
 
         } catch (MessagingException e) {
