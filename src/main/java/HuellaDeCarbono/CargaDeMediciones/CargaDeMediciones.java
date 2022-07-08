@@ -1,6 +1,5 @@
 package HuellaDeCarbono.CargaDeMediciones;
 
-import HuellaDeCarbono.ManejoAmbiental.Medicion;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellReference;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -36,7 +35,7 @@ import java.util.regex.Pattern;
             return this;
         }
 
-        public List<Medicion> lecturaArchivo(int sheetNumber) {
+        public List<DatoDeActividad> lecturaArchivo(int sheetNumber) {
 
             DataFormatter formatter = new DataFormatter();
             Sheet sheet1 = workbook.getSheetAt(sheetNumber);
@@ -51,8 +50,8 @@ import java.util.regex.Pattern;
             String periodoImputacion = null;
             String unidad = null;
 
-            List<Medicion> listaMediciones = new ArrayList<>();
-            Medicion nuevaMedicion;
+            List<DatoDeActividad> medicion = new ArrayList<>();
+            DatoDeActividad datoDeActividad;
 
             final String primerasFilas = "^[A-E]1|^[A-E]2";
             pattern = Pattern.compile(primerasFilas);
@@ -86,11 +85,11 @@ import java.util.regex.Pattern;
                     }
                 }
                 if (!matcher.matches()) {
-                    nuevaMedicion = new Medicion(actividad, unidad, tipoDeConsumo, valor, periodicidad, periodoImputacion);
-                    listaMediciones.add(nuevaMedicion);
+                    datoDeActividad = new DatoDeActividad(actividad, unidad, tipoDeConsumo, valor, periodicidad, periodoImputacion);
+                    medicion.add(datoDeActividad);
                 }
             }
-            return listaMediciones;
+            return medicion;
         }
 
     }

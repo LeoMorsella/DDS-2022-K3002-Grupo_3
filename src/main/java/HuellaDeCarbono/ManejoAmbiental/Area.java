@@ -1,12 +1,16 @@
 package HuellaDeCarbono.ManejoAmbiental;
 
+import HuellaDeCarbono.CargaDeMediciones.CargaDeMediciones;
+import HuellaDeCarbono.CargaDeMediciones.DatoDeActividad;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class Area {
     private String nombre;
     private  ArrayList<Miembro> miembro;
     private  Organizacion organizacion;
-    private  ArrayList<Medicion> mediciones;
+    private  List<List<DatoDeActividad>> mediciones = null;
 
     public Area(String nombre, ArrayList<Miembro> miembros,Organizacion organizacion) {
         this.nombre = nombre;
@@ -38,15 +42,14 @@ public class Area {
         this.organizacion = organizacion;
     }
 
-    public void setMediciones(ArrayList<Medicion> mediciones) {
-        this.mediciones = mediciones;
-    }
-
-    public ArrayList<Medicion> getMediciones() {
+    public List<List<DatoDeActividad>> getMediciones() {
         return mediciones;
     }
-
-    public void agregarMedicion(Medicion medicion){
-        mediciones.add(medicion);
+    public void cargarMediciones(String DireccionExcel) {
+        String filePath = DireccionExcel;
+        CargaDeMediciones cargaMediciones = new CargaDeMediciones();
+        cargaMediciones.useExistingWorkbook(filePath);
+        List<DatoDeActividad> nuevasMedicion = cargaMediciones.lecturaArchivo(0);
+        mediciones.add(nuevasMedicion);
     }
 }

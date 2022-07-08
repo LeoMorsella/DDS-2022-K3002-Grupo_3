@@ -1,7 +1,5 @@
 package HuellaDeCarbono.CalculoDeHuella;
 
-import HuellaDeCarbono.ManejoAmbiental.Medicion;
-
 public class HuellaDeCarbono {
 
     private Medicion medicion;

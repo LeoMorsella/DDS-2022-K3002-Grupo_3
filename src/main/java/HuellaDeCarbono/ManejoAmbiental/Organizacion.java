@@ -1,11 +1,13 @@
 package HuellaDeCarbono.ManejoAmbiental;
 
 import HuellaDeCarbono.CargaDeMediciones.CargaDeMediciones;
+import HuellaDeCarbono.CargaDeMediciones.DatoDeActividad;
 import HuellaDeCarbono.MedioDeTransporte.Medio;
 import HuellaDeCarbono.Repositorios.RepositorioTrayectos;
 import HuellaDeCarbono.Movilidad.Trayecto;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -60,10 +62,6 @@ public class Organizacion {
         this.clasificacion = clasificacion;
     }
 
-    public ArrayList<Medicion> getMediciones() {
-        return mediciones;
-    }
-
     public ArrayList<Miembro> getContactosMail() {
         return contactosMail;
     }
@@ -87,10 +85,6 @@ public class Organizacion {
         contactosWP.add(Contacto);
     }
 
-    public void setMediciones(ArrayList<Medicion> mediciones) {
-        this.mediciones = mediciones;
-    }
-
     public Organizacion(String razonSocial, TipoOrg tipo, Ubicacion ubicacion, ArrayList<Area> areas, Clasificacion clasificacion, ArrayList<Miembro> contactosMail, ArrayList<Miembro> contactosWP) {
         this.razonSocial = razonSocial;
         this.tipo = tipo;
@@ -110,14 +104,13 @@ public class Organizacion {
         RepositorioTrayectos.getRepositorio().agregarTrayecto(nuevoTrayecto);
     }
 
-
-    public void cargarMediciones(String DireccionExcel) {
-        String filePath = DireccionExcel;
-        CargaDeMediciones cargaMediciones = new CargaDeMediciones();
-        cargaMediciones.useExistingWorkbook(filePath);
-        List<Medicion> nuevasMediciones = cargaMediciones.lecturaArchivo(0);
-        for (Medicion medicion : nuevasMediciones){
-            mediciones.add(medicion);
+    public List<List<DatoDeActividad>> getMediciones(){
+        List<List<DatoDeActividad>> medicionesOrga = new ArrayList<>();
+        for (Area area : this.areas){
+            for (List<DatoDeActividad> medicion : area.getMediciones()){
+                medicionesOrga.add(medicion);
+            }
         }
+        return medicionesOrga;
     }
 }

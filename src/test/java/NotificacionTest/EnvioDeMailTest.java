@@ -1,12 +1,7 @@
 package NotificacionTest;
 
-import HuellaDeCarbono.CargaDeMediciones.CargaDeMediciones;
-import HuellaDeCarbono.ManejoAmbiental.Medicion;
 import HuellaDeCarbono.Notificacion.EnviarMail;
 import org.junit.Test;
-
-import java.util.List;
-import java.util.logging.Logger;
 
 public class EnvioDeMailTest {
 
