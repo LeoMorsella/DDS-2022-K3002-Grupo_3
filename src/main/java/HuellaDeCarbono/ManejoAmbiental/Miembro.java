@@ -13,6 +13,10 @@ public class Miembro {
     private ArrayList<ArrayList<Trayecto>> recorrido;
     private ArrayList<Medicion> mediciones;
 
+    private String mail;
+
+    private String telefono;
+
     public String getNombre() {
         return nombre;
     }
@@ -47,6 +51,22 @@ public class Miembro {
 
     public void setNumDoc(int numDoc) {
         this.numDoc = numDoc;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public ArrayList<Area> getAreas() {

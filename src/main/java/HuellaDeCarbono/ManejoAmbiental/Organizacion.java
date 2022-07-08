@@ -15,11 +15,10 @@ public class Organizacion {
     private Ubicacion ubicacion;
     private ArrayList<Area> areas;
     private Clasificacion clasificacion;
-    private HashMap<Medicion,Miembro> mediciones;
-    private ArrayList<Miembro> contactos = null;
-    private SectorTerritorial sectorTerritorial;
-    //TODO ver si es conveniente manejarlo como hashmap o listas separadas
-    //private ArrayList<Medicion> mediciones;
+    private ArrayList<Medicion> mediciones;
+    private ArrayList<Miembro> contactosMail = null;
+
+    private ArrayList<Miembro> contactosWP = null;
 
     public String getRazonSocial() {
         return razonSocial;
@@ -61,39 +60,43 @@ public class Organizacion {
         this.clasificacion = clasificacion;
     }
 
-    public SectorTerritorial getSectorTerritorial() {
-        return sectorTerritorial;
-    }
-
-    public HashMap<Medicion, Miembro> getMediciones() {
+    public ArrayList<Medicion> getMediciones() {
         return mediciones;
     }
 
-    public ArrayList<Miembro> getContactos() {
-        return contactos;
+    public ArrayList<Miembro> getContactosMail() {
+        return contactosMail;
     }
 
-    public void setSectorTerritorial(SectorTerritorial sectorTerritorial) {
-        this.sectorTerritorial = sectorTerritorial;
+    public ArrayList<Miembro> getContactosWP() {
+        return contactosWP;
     }
 
-    public void setContactos(ArrayList<Miembro> contactos) {
-        this.contactos = contactos;
-    }
-    public void agregarContacto(Miembro Contacto){
-        contactos.add(Contacto);
+    public void setContactosWP(ArrayList<Miembro> contactosWP) {
+        this.contactosWP = contactosWP;
     }
 
-    public void setMediciones(HashMap<Medicion, Miembro> mediciones) {
+    public void setContactosMail(ArrayList<Miembro> contactos) {
+        this.contactosMail = contactos;
+    }
+    public void agregarContactoMail(Miembro Contacto){
+        contactosMail.add(Contacto);
+    }
+
+    public void agregarContactoWP(Miembro Contacto){
+        contactosWP.add(Contacto);
+    }
+
+    public void setMediciones(ArrayList<Medicion> mediciones) {
         this.mediciones = mediciones;
     }
 
-    public Organizacion(String razon, TipoOrg tipoOrganizacion, Ubicacion ubi, ArrayList<Area> areas, Clasificacion clasi){
-        this.razonSocial = razon;
-        this.tipo = tipoOrganizacion;
-        this.ubicacion = ubi;
+    public Organizacion(String razonSocial, TipoOrg tipo, Ubicacion ubicacion, ArrayList<Area> areas, Clasificacion clasificacion) {
+        this.razonSocial = razonSocial;
+        this.tipo = tipo;
+        this.ubicacion = ubicacion;
         this.areas = areas;
-        this.clasificacion = clasi;
+        this.clasificacion = clasificacion;
     }
 
     public void agregarSector(Area area){
@@ -107,18 +110,13 @@ public class Organizacion {
 
 
     //Esta mal porque se agregan todas las mediciones a un mismo miembro
-    public void cargarMediciones(String DireccionExcel, Miembro miembro) {
+    public void cargarMediciones(String DireccionExcel) {
         String filePath = DireccionExcel;
         CargaDeMediciones cargaMediciones = new CargaDeMediciones();
         cargaMediciones.useExistingWorkbook(filePath);
         List<Medicion> nuevasMediciones = cargaMediciones.lecturaArchivo(0);
         for (Medicion medicion : nuevasMediciones){
-            mediciones.put(medicion, miembro);
-            miembro.agregarMedicion(medicion);
-            ArrayList<Area> Areas = miembro.getAreas();
-            for (Area area: Areas){
-                area.agregarMedicion(medicion);
-            }
+            mediciones.add(medicion);
         }
     }
 }

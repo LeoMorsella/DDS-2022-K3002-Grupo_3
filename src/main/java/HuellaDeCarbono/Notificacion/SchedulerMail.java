@@ -2,8 +2,10 @@ package HuellaDeCarbono.Notificacion;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.CountDownLatch;
 
+import HuellaDeCarbono.ManejoAmbiental.Miembro;
 import org.quartz.*;
 
 public class SchedulerMail {
@@ -34,13 +36,7 @@ public class SchedulerMail {
         JobDetail jobDetail = jobBuilder
                 .withIdentity("Envío de Correo")
                 .usingJobData(data)
-                .usingJobData("ejemplo", "algun valor")
                 .build();
-
-        //Seteo del momento actual
-        Calendar ahora = Calendar.getInstance();
-        int dia = ahora.get(Calendar.DAY_OF_MONTH);
-        int mes = ahora.get(Calendar.MONTH);
 
         System.out.println("Hora actual: " + new Date());
 
@@ -56,7 +52,9 @@ public class SchedulerMail {
         // * * * * * * *
 
         //Se envía el primer día de cada mes
-        String cron = "* * * 1 " + (mes + 1) + " * *";
+        //cron real : 0 0 0 1 * ? *
+        //cron de prueba : * * * ? * *  = Todos los segundos
+        String cron = "* * * ? * * ";
 
 
         // Construccion de Trigger
