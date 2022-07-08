@@ -53,7 +53,7 @@ import java.util.regex.Pattern;
             List<DatoDeActividad> medicion = new ArrayList<>();
             DatoDeActividad datoDeActividad;
 
-            final String primerasFilas = "^[A-E]1|^[A-E]2";
+            final String primerasFilas = "^[A-F]1|^[A-F]2";
             pattern = Pattern.compile(primerasFilas);
 
             for (Row row : sheet1) {
