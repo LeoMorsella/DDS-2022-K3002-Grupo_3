@@ -4,10 +4,15 @@ import HuellaDeCarbono.ManejoAmbiental.Miembro;
 import HuellaDeCarbono.Repositorios.RepositorioRecorrido;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class Recorrido {
 
-    private ArrayList<Trayecto> trayectos = new ArrayList<Trayecto>();
+    private ArrayList<Trayecto> trayectos;
+
+    private Double factorDeUso = null;
+
+    private Date fechaDeInicio = null;
 
     public ArrayList<Trayecto> getTrayectos() {
         return trayectos;
@@ -27,8 +32,10 @@ public class Recorrido {
         this.trayectos = trayectos;
     }
 
-    public void asociarA(Miembro miembro){
-        miembro.getRecorrido().add(trayectos);
+    public void asociarA(Miembro miembro, Double factorDeUso, Date fechaDeInicio){
+        this.factorDeUso = factorDeUso;
+        this.fechaDeInicio = fechaDeInicio;
+        miembro.getRecorrido().add(this);
     }
 
     public void addTrayectos(ArrayList<Trayecto> nuevosTrayectos){

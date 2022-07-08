@@ -1,5 +1,6 @@
 package OrganizacionTest;
 
+import HuellaDeCarbono.Movilidad.Recorrido;
 import HuellaDeCarbono.Movilidad.Trayecto;
 import HuellaDeCarbono.ManejoAmbiental.*;
 import org.junit.jupiter.api.Assertions;
@@ -13,8 +14,8 @@ public class MiembroTest {
     public void agregarAreaCorrectamente() {
         Ubicacion ubicacion = new Ubicacion("Argentina","Buenos Aires","La Matanza","Gonzalez Catan","Matienzo","15500");
         ArrayList<Area> areasPrueba = new ArrayList<>();
-        Organizacion organizacionPrueba = new Organizacion("SA", TipoOrg.EMPRESA,ubicacion,areasPrueba,Clasificacion.MINISTERIO);
-        ArrayList<ArrayList<Trayecto>> recorrido = new ArrayList<>();
+        Organizacion organizacionPrueba = new Organizacion("SA", TipoOrg.EMPRESA,ubicacion,areasPrueba,Clasificacion.MINISTERIO, null, null);
+        ArrayList<Recorrido> recorrido = new ArrayList<>();
         Miembro miembro = new Miembro("Juan","Perez","DNI",123456789,areasPrueba,recorrido);
         ArrayList<Miembro> miembrosPrueba = new ArrayList<>();
         miembrosPrueba.add(miembro);
@@ -28,8 +29,8 @@ public class MiembroTest {
     public void medirImpactoPersonal() {
         Ubicacion ubicacion = new Ubicacion("Argentina","Buenos Aires","La Matanza","Gonzalez Catan","Matienzo","15500");
         ArrayList<Area> areasPrueba = new ArrayList<>();
-        Organizacion organizacionPrueba = new Organizacion("SA", TipoOrg.EMPRESA,ubicacion,areasPrueba,Clasificacion.MINISTERIO);
-        ArrayList<ArrayList<Trayecto>> recorrido = new ArrayList<>();
+        Organizacion organizacionPrueba = new Organizacion("SA", TipoOrg.EMPRESA,ubicacion,areasPrueba,Clasificacion.MINISTERIO, null, null);
+        ArrayList<Recorrido> recorrido = new ArrayList<>();
         Miembro miembro = new Miembro("Juan","Perez","DNI",123456789,areasPrueba,recorrido);
         Medicion medicion = new Medicion("Electricidad adquirida y consumida","m3","Electricidad","2000","Diaria","30");
         ArrayList<Medicion> medicions = new ArrayList<>();

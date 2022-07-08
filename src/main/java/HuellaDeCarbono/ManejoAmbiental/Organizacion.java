@@ -91,12 +91,14 @@ public class Organizacion {
         this.mediciones = mediciones;
     }
 
-    public Organizacion(String razonSocial, TipoOrg tipo, Ubicacion ubicacion, ArrayList<Area> areas, Clasificacion clasificacion) {
+    public Organizacion(String razonSocial, TipoOrg tipo, Ubicacion ubicacion, ArrayList<Area> areas, Clasificacion clasificacion, ArrayList<Miembro> contactosMail, ArrayList<Miembro> contactosWP) {
         this.razonSocial = razonSocial;
         this.tipo = tipo;
         this.ubicacion = ubicacion;
         this.areas = areas;
         this.clasificacion = clasificacion;
+        this.contactosMail = contactosMail;
+        this.contactosWP = contactosWP;
     }
 
     public void agregarSector(Area area){
@@ -109,7 +111,6 @@ public class Organizacion {
     }
 
 
-    //Esta mal porque se agregan todas las mediciones a un mismo miembro
     public void cargarMediciones(String DireccionExcel) {
         String filePath = DireccionExcel;
         CargaDeMediciones cargaMediciones = new CargaDeMediciones();

@@ -1,5 +1,6 @@
 package HuellaDeCarbono.ManejoAmbiental;
 
+import HuellaDeCarbono.Movilidad.Recorrido;
 import HuellaDeCarbono.Movilidad.Trayecto;
 
 import java.util.ArrayList;
@@ -10,7 +11,7 @@ public class Miembro {
     private String tipoDoc;
     private int numDoc;
     private ArrayList<Area> areas;
-    private ArrayList<ArrayList<Trayecto>> recorrido;
+    private ArrayList<Recorrido> recorrido;
     private ArrayList<Medicion> mediciones;
 
     private String mail;
@@ -77,11 +78,11 @@ public class Miembro {
         this.areas = areas;
     }
 
-    public ArrayList<ArrayList<Trayecto>> getRecorrido() {
+    public ArrayList<Recorrido> getRecorrido() {
         return recorrido;
     }
 
-    public void setRecorrido(ArrayList<ArrayList<Trayecto>> recorrido) {
+    public void setRecorrido(ArrayList<Recorrido> recorrido) {
         this.recorrido = recorrido;
     }
 
@@ -90,7 +91,7 @@ public class Miembro {
     }
 
     public Miembro(String nom, String ape, String tipoDocu, int numeroDoc, ArrayList<Area> listaAreas,
-                   ArrayList<ArrayList<Trayecto>> unRecorrido){
+                   ArrayList<Recorrido> unRecorrido){
         this.nombre = nom;
         this.apellido = ape;
         this.tipoDoc = tipoDocu;
