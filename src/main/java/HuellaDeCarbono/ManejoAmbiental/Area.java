@@ -45,6 +45,7 @@ public class Area {
     public List<List<DatoDeActividad>> getMediciones() {
         return mediciones;
     }
+
     public void cargarMediciones(String DireccionExcel) {
         String filePath = DireccionExcel;
         CargaDeMediciones cargaMediciones = new CargaDeMediciones();

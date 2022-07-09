@@ -1,6 +1,8 @@
 package HuellaDeCarbono.CalculoDeHuella;
 
 
+import HuellaDeCarbono.CargaDeMediciones.DatoDeActividad;
+
 public class CalcularHuellaDeCarbono {
     private Double k;
 
@@ -10,24 +12,10 @@ public class CalcularHuellaDeCarbono {
         return instance;
     }
 
-    public HuellaDeCarbono calcularHuellaDeCarbono(Medicion medicion) {
+    public Double calcularHuellaDeCarbono(DatoDeActividad medicion) {
         Double HC = 0.0;
-        String actividad = medicion.getActividad();
-        Double valor = medicion.getValor();
-        FactoresDeEmision factoresDeEmision = FactoresDeEmision.getFactores();
-        if (actividad != "Logísitica de productos y residuos") {
-            if (actividad != "Combustion Móvil") {
-                HC = valor * factoresDeEmision.getFE(medicion.getTipoDeConsumo());
-            }
-            /*else{
-                HC = medicion.getValor() * factoresDeEmision.getFE(medicion.getTipoDeTransporte());
-            }
-            Acá es el problema con el medio de transporte*/
-        }
-        else {
-            //Calculo de huella en logistica
-        }
-        return new HuellaDeCarbono(medicion, HC);
+
+        return HC;
     }
 
     public Double getK() {

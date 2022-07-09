@@ -12,7 +12,6 @@ public class Miembro {
     private int numDoc;
     private ArrayList<Area> areas;
     private ArrayList<Recorrido> recorrido;
-    private ArrayList<Medicion> mediciones;
 
     private String mail;
 
@@ -44,10 +43,6 @@ public class Miembro {
 
     public int getNumDoc() {
         return numDoc;
-    }
-
-    public ArrayList<Medicion> getMediciones() {
-        return mediciones;
     }
 
     public void setNumDoc(int numDoc) {
@@ -86,10 +81,6 @@ public class Miembro {
         this.recorrido = recorrido;
     }
 
-    public void setMediciones(ArrayList<Medicion> mediciones) {
-        this.mediciones = mediciones;
-    }
-
     public Miembro(String nom, String ape, String tipoDocu, int numeroDoc, ArrayList<Area> listaAreas,
                    ArrayList<Recorrido> unRecorrido){
         this.nombre = nom;
@@ -101,24 +92,7 @@ public class Miembro {
 
     }
 
-    public void agregarMedicion(Medicion medicion){
-        mediciones.add(medicion);
-    }
-
     public void registrarseA(Area area) {
             areas.add(area);
-    }
-
-
-
-    public double impactoPersonal() {
-        double huella = 0;
-
-        for (Medicion medicion:mediciones)
-        {
-            huella = medicion.getValor() + huella;
-        }
-
-        return huella;
     }
 }

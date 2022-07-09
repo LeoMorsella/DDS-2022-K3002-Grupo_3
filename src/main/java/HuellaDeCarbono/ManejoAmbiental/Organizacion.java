@@ -17,7 +17,6 @@ public class Organizacion {
     private Ubicacion ubicacion;
     private ArrayList<Area> areas;
     private Clasificacion clasificacion;
-    private ArrayList<Medicion> mediciones;
     private ArrayList<Miembro> contactosMail = null;
 
     private ArrayList<Miembro> contactosWP = null;
