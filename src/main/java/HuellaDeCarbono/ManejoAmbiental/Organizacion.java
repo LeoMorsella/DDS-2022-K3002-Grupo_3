@@ -3,8 +3,10 @@ package HuellaDeCarbono.ManejoAmbiental;
 import HuellaDeCarbono.CargaDeMediciones.CargaDeMediciones;
 import HuellaDeCarbono.CargaDeMediciones.DatoDeActividad;
 import HuellaDeCarbono.MedioDeTransporte.Medio;
+import HuellaDeCarbono.Repositorios.RepositorioMiembros;
 import HuellaDeCarbono.Repositorios.RepositorioTrayectos;
 import HuellaDeCarbono.Movilidad.Trayecto;
+import HuellaDeCarbono.Repositorios.RepositorioUsuarios;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -111,5 +113,34 @@ public class Organizacion {
             }
         }
         return medicionesOrga;
+    }
+
+    public Double calculoHuella(){
+        List<List<DatoDeActividad>> mediciones = this.getMediciones();
+        Double HCmediciones = 0.0;
+        Double HCmiembros = 0.0;
+        Double HC = 0.0;
+        ArrayList<Miembro> miembrosOrg = new ArrayList<>();
+
+        for(List<DatoDeActividad> medicion : mediciones){
+            HCmediciones = HCmediciones + medicion.calculoHuella();
+            //TODO ==> FALTA HACER LA FUNCION PARA LA HC DE DATO DE ACTIVIDAD
+        }
+
+        for(Miembro miembro : RepositorioMiembros.getRepositorio().getMiembros()){
+            for(Area area : this.areas){
+                if(miembro.getAreas().contains(area)){
+                    miembrosOrg.add(miembro);
+                }
+            }
+        }
+
+        for(Miembro miembro : miembrosOrg){
+            HCmiembros = HCmiembros + miembro.calculoHuella();
+            //TODO ==> IDEM
+        }
+
+        HC = HCmediciones + HCmiembros;
+        return HC;
     }
 }

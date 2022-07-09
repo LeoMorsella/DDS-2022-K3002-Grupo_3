@@ -2,6 +2,7 @@ package HuellaDeCarbono.ManejoAmbiental;
 
 import HuellaDeCarbono.Movilidad.Recorrido;
 import HuellaDeCarbono.Movilidad.Trayecto;
+import HuellaDeCarbono.Repositorios.RepositorioMiembros;
 
 import java.util.ArrayList;
 
@@ -89,10 +90,18 @@ public class Miembro {
         this.numDoc = numeroDoc;
         this.areas = listaAreas;
         this.recorrido = unRecorrido;
-
+        RepositorioMiembros.getRepositorio().agregarMiembro(this);
     }
 
     public void registrarseA(Area area) {
             areas.add(area);
+    }
+
+    public Boolean perteneceA(Area area) {return areas.contains(area);}
+
+    public Double calculoHuella(){
+        Double HC = 0.0;
+
+        return HC;
     }
 }
