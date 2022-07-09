@@ -21,4 +21,8 @@ public class MedioNoMotorizado extends Medio {
     public void setID(String ID) {
         this.ID = ID;
     }
+
+    public Double getFE() {
+        return 0.0;
+    }
 }

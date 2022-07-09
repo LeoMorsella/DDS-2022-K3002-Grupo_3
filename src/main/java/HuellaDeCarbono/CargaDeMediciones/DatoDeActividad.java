@@ -65,6 +65,10 @@ public class DatoDeActividad {
     public void setUnidad(String unidad) {
         this.unidad = unidad;
     }
+
+    public Double calculoHuella() {
+            return null; // TODO
+    }
 }
 
 

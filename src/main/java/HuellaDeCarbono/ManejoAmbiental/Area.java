@@ -8,13 +8,13 @@ import java.util.List;
 
 public class Area {
     private String nombre;
-    private  ArrayList<Miembro> miembro;
+    private  ArrayList<Miembro> miembros;
     private  Organizacion organizacion;
     private  List<List<DatoDeActividad>> mediciones = null;
 
     public Area(String nombre, ArrayList<Miembro> miembros,Organizacion organizacion) {
         this.nombre = nombre;
-        this.miembro = miembros;
+        this.miembros = miembros;
         this.organizacion = organizacion;
     }
 
@@ -26,12 +26,12 @@ public class Area {
         this.nombre = nombre;
     }
 
-    public ArrayList<Miembro> getMiembro() {
-        return miembro;
+    public ArrayList<Miembro> getMiembros() {
+        return miembros;
     }
 
-    public void setMiembro(ArrayList<Miembro> miembro) {
-        this.miembro = miembro;
+    public void setMiembros(ArrayList<Miembro> miembro) {
+        this.miembros = miembro;
     }
 
     public Organizacion getOrganizacion() {
@@ -52,5 +52,18 @@ public class Area {
         cargaMediciones.useExistingWorkbook(filePath);
         List<DatoDeActividad> nuevasMedicion = cargaMediciones.lecturaArchivo(0);
         mediciones.add(nuevasMedicion);
+    }
+
+    public Double calculoHuella() throws Exception {
+        Double HC = 0.0;
+        for (Miembro miembro : miembros) {
+            HC += miembro.calculoHuella();
+        }
+        for (List<DatoDeActividad> mediciones : mediciones ) {
+            for(DatoDeActividad medicion : mediciones) {
+                HC += medicion.calculoHuella();
+            }
+        }
+        return HC;
     }
 }

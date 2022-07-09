@@ -99,8 +99,11 @@ public class Miembro {
 
     public Boolean perteneceA(Area area) {return areas.contains(area);}
 
-    public Double calculoHuella(){
+    public Double calculoHuella() throws Exception {
         Double HC = 0.0;
+        for(Recorrido recorrido : recorrido) {
+            HC += recorrido.calculoHuella();
+        }
 
         return HC;
     }

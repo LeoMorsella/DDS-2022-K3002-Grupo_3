@@ -1,7 +1,5 @@
 package HuellaDeCarbono.Repositorios;
 
-import HuellaDeCarbono.MedioDeTransporte.TipoServicio;
-
 import java.util.ArrayList;
 import java.util.List;
 

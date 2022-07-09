@@ -50,5 +50,13 @@ public class Recorrido {
         return distanciaTotal;
     }
 
+    public Double calculoHuella() throws Exception {
+        Double huellaRecorrido = 0.0;
+        for(Trayecto trayecto : trayectos) {
+            huellaRecorrido += trayecto.calculoHuella();
+        }
+        return huellaRecorrido;
+    }
+
 }
 

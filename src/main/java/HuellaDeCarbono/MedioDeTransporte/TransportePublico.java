@@ -50,4 +50,8 @@ public class TransportePublico extends Medio {
     public void setParadas(ArrayList<Parada> paradas) {
         this.paradas = paradas;
     }
+
+    public Double getFE() {
+        return null; // TODO
+    }
 }

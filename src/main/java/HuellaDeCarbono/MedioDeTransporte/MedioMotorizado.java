@@ -1,5 +1,7 @@
 package HuellaDeCarbono.MedioDeTransporte;
 
+import HuellaDeCarbono.CalculoDeHuella.FactoresDeEmision;
+
 public class MedioMotorizado extends Medio {
     private TipoVehiculoMotorizado tipoVehiculoMotorizado;
     private TipoCombustible tipoCombustible;
@@ -54,5 +56,9 @@ public class MedioMotorizado extends Medio {
 
     public void setTipoServicio(String tipoServicio) {
         this.tipoServicio = tipoServicio;
+    }
+
+    public Double getFE() {
+        return null; // TODO
     }
 }
