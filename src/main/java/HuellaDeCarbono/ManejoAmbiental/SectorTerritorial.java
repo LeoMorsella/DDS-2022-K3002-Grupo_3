@@ -60,10 +60,10 @@ public class SectorTerritorial {
     }
 
     //TODO metodo Calculo de Huella
-    public Double calcularHC(Double k) throws Exception {
+    public Double calcularHC() throws Exception {
         Double HCTotal = 0.0;
         for (Organizacion organizacion: this.getOrganizaciones()){
-            HCTotal += organizacion.calcularHC(k);
+            HCTotal += organizacion.calcularHC();
         }
         return HCTotal;
     }
