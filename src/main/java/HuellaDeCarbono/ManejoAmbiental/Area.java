@@ -65,4 +65,8 @@ public class Area {
         }
         return HC;
     }
+
+    public Double HCpromedio(Double k) throws Exception {
+        return this.calcularHC(k) / this.getMiembros().size();
+    }
 }

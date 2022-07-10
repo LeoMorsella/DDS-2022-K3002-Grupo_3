@@ -8,6 +8,7 @@ import java.util.List;
 
 public class CalcularHuellaDeCarbono {
 
+    //TODO: Volver singleton para que se mantenga el valor de k
     Double k = 0.0;
 
     public Double getK() {
@@ -24,7 +25,7 @@ public class CalcularHuellaDeCarbono {
 
     public CalcularHuellaDeCarbono(){
         this.k = 0.0;
-    };
+    }
 
     //Todos los calculos de HC se hacen respecto a un mes de consumo
     public Double calcularHCMedicion(List<DatoDeActividad> medicion) {

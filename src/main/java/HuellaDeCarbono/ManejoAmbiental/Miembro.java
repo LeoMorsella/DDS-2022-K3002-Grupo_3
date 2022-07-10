@@ -1,5 +1,6 @@
 package HuellaDeCarbono.ManejoAmbiental;
 
+import HuellaDeCarbono.CalculoDeHuella.CalcularHuellaDeCarbono;
 import HuellaDeCarbono.Movilidad.Recorrido;
 import HuellaDeCarbono.Repositorios.RepositorioMiembros;
 
@@ -98,4 +99,28 @@ public class Miembro {
 
     public Boolean perteneceA(Area area) {return areas.contains(area);}
 
+    public Double calcularHC(){
+        Double HC;
+        try {
+            HC = new CalcularHuellaDeCarbono().calcularHCMiembro(this);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        return HC;
+    }
+    public Double calcularImpactoIndividual(Organizacion organizacion, Double k) throws Exception {
+        Double HCInd;
+        Double HCorg;
+        Double promedio;
+        Double impacto;
+        HCorg = organizacion.calcularHC(k);
+        //TODO: Asociar recorridos a las organizaciones donde se usan
+        HCInd = this.calcularHC();
+        promedio = HCorg / organizacion.getMiembros().size();
+        impacto = (HCInd * promedio) / 100;
+        System.out.println("La Huella de carbono de su compañía es: " + HCorg +". Su Huella de carbono"
+        +" individual es: " + HCInd + ". Eso equivale a un: " +impacto+ "% de la Huella de carbono de " +
+                "organización");
+        return impacto;
+    }
 }

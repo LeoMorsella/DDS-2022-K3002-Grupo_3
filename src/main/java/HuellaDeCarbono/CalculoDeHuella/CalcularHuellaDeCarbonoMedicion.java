@@ -8,7 +8,7 @@ public class CalcularHuellaDeCarbonoMedicion {
     static public Double calcularHCMedicionEstandar(DatoDeActividad medicion){
         Double HC = 0.0;
         Double FE = FactoresDeEmision.getFactores().getFE(medicion.getActividad());
-        Double valor = medicion.getValor();
+        Double valor = (Double) medicion.getValor();
         if(medicion.getPeriodicidad() == "mensual"){
             return HC = valor * FE;
         }
@@ -30,19 +30,20 @@ public class CalcularHuellaDeCarbonoMedicion {
     Double HCTotal = 0.0;
     Double peso = 0.0;
     Double distancia = 0.0;
+    Double FE = 0.0;
         for (DatoDeActividad medicion : mediciones) {
             if (medicion.getActividad() != "Logística de productos y resitudos") {
                 HCTotal += calcularHCMedicionEstandar(medicion);
             }
             else {
-                if(medicion.getUnidad() == "Distancia Medio Recorrida")
-                    distancia = medicion.getValor();
-                else if (medicion.getUnidad() == "Peso Total Transportado")
-                    peso = medicion.getValor();
+                if(medicion.getTipoDeConsumo() == "Distancia Medio Recorrida")
+                    distancia =(Double) medicion.getValor();
+                else if (medicion.getTipoDeConsumo() == "Peso Total Transportado")
+                    peso = (Double) medicion.getValor();
+                else if (medicion.getTipoDeConsumo() == "Medio de Transporte")
+                    FE = FactoresDeEmision.getFactores().getFE((String) medicion.getValor());
             }
-            //Problema para asignar FE acá porque el medio se registra como un double
-            //ya que aparece en un campo valor de la medicion
-            HCTotal += calcularHCMedicionLogistica(distancia, peso, medicion.getPeriodicidad(), 1.0, k);
+            HCTotal += calcularHCMedicionLogistica(distancia, peso, medicion.getPeriodicidad(), FE, k);
         }
         return HCTotal;
     }

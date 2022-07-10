@@ -1,6 +1,7 @@
 package HuellaDeCarbono.ManejoAmbiental;
 
 import HuellaDeCarbono.Repositorios.RepositorioOrganizaciones;
+import com.sun.org.apache.xpath.internal.operations.Or;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,4 +60,11 @@ public class SectorTerritorial {
     }
 
     //TODO metodo Calculo de Huella
+    public Double calcularHC(Double k) throws Exception {
+        Double HCTotal = 0.0;
+        for (Organizacion organizacion: this.getOrganizaciones()){
+            HCTotal += organizacion.calcularHC(k);
+        }
+        return HCTotal;
+    }
 }

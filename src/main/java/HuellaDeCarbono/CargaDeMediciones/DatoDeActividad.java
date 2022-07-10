@@ -34,8 +34,10 @@ public class DatoDeActividad {
         this.tipoDeConsumo = tipoDeConsumo;
     }
 
-    public Double getValor() {
-        return Double.parseDouble(valor);
+    public Object getValor() {
+            if(this.tipoDeConsumo != "Categoria de producto transportado" && this.tipoDeConsumo !=
+                    "Medio de Transporte") return Double.parseDouble(valor);
+            else return valor;
     }
 
     public void setValor(String valor) {

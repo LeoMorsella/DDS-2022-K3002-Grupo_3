@@ -96,6 +96,16 @@ public class Organizacion {
         this.contactosWP = contactosWP;
     }
 
+    public List<Miembro> getMiembros(){
+        List<Miembro> miembros = new ArrayList<>();
+        for (Area area: areas){
+            for (Miembro miembro: area.getMiembros()){
+                miembros.add(miembro);
+            }
+        }
+        return miembros;
+    }
+
     public void agregarSector(Area area){
         this.areas.add(area);
     }
@@ -122,5 +132,9 @@ public class Organizacion {
             HC += area.calcularHC(k);
         }
         return HC   ;
+    }
+
+    public Double HCpromedio(Double k) throws Exception {
+        return this.calcularHC(k) / this.getMiembros().size();
     }
 }
