@@ -1,7 +1,6 @@
 package HuellaDeCarbono.ManejoAmbiental;
 
 import HuellaDeCarbono.Movilidad.Recorrido;
-import HuellaDeCarbono.Movilidad.Trayecto;
 import HuellaDeCarbono.Repositorios.RepositorioMiembros;
 
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ public class Miembro {
     private String tipoDoc;
     private int numDoc;
     private ArrayList<Area> areas;
-    private ArrayList<Recorrido> recorrido;
+    private ArrayList<Recorrido> recorridos;
 
     private String mail;
 
@@ -74,12 +73,12 @@ public class Miembro {
         this.areas = areas;
     }
 
-    public ArrayList<Recorrido> getRecorrido() {
-        return recorrido;
+    public ArrayList<Recorrido> getRecorridos() {
+        return recorridos;
     }
 
-    public void setRecorrido(ArrayList<Recorrido> recorrido) {
-        this.recorrido = recorrido;
+    public void setRecorridos(ArrayList<Recorrido> recorridos) {
+        this.recorridos = recorridos;
     }
 
     public Miembro(String nom, String ape, String tipoDocu, int numeroDoc, ArrayList<Area> listaAreas,
@@ -89,7 +88,7 @@ public class Miembro {
         this.tipoDoc = tipoDocu;
         this.numDoc = numeroDoc;
         this.areas = listaAreas;
-        this.recorrido = unRecorrido;
+        this.recorridos = unRecorrido;
         RepositorioMiembros.getRepositorio().agregarMiembro(this);
     }
 
@@ -99,12 +98,4 @@ public class Miembro {
 
     public Boolean perteneceA(Area area) {return areas.contains(area);}
 
-    public Double calculoHuella() throws Exception {
-        Double HC = 0.0;
-        for(Recorrido recorrido : recorrido) {
-            HC += recorrido.calculoHuella();
-        }
-
-        return HC;
-    }
 }

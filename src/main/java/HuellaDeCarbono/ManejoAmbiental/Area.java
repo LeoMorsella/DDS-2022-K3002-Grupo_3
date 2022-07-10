@@ -1,5 +1,6 @@
 package HuellaDeCarbono.ManejoAmbiental;
 
+import HuellaDeCarbono.CalculoDeHuella.CalcularHuellaDeCarbono;
 import HuellaDeCarbono.CargaDeMediciones.CargaDeMediciones;
 import HuellaDeCarbono.CargaDeMediciones.DatoDeActividad;
 
@@ -54,15 +55,13 @@ public class Area {
         mediciones.add(nuevasMedicion);
     }
 
-    public Double calculoHuella() throws Exception {
+    public Double calcularHC(Double k) throws Exception {
         Double HC = 0.0;
         for (Miembro miembro : miembros) {
-            HC += miembro.calculoHuella();
+            HC += new CalcularHuellaDeCarbono().calcularHCMiembro(miembro);
         }
         for (List<DatoDeActividad> mediciones : mediciones ) {
-            for(DatoDeActividad medicion : mediciones) {
-                HC += medicion.calculoHuella();
-            }
+            HC += new CalcularHuellaDeCarbono(k).calcularHCMedicion(mediciones);
         }
         return HC;
     }

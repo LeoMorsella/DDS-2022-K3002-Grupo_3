@@ -54,7 +54,4 @@ public class Trayecto {
         return distanciaService.medirDistancia(puntoPartida, puntoLlegada);
     }
 
-    public Double calculoHuella() throws Exception {
-       return this.distanciaMedia() * medioTransporte.getFE();
-    }
 }

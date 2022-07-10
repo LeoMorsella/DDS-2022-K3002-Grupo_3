@@ -115,11 +115,11 @@ public class Organizacion {
         return medicionesOrga;
     }
 
-    public Double calculoHuella() throws Exception {
+    public Double calcularHC(Double k) throws Exception {
         Double HC = 0.0;
 
         for( Area area : areas) {
-            HC += area.calculoHuella();
+            HC += area.calcularHC(k);
         }
         return HC   ;
     }

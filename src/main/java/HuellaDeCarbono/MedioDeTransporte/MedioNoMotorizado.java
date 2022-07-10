@@ -4,8 +4,8 @@ public class MedioNoMotorizado extends Medio {
 
     private TipoMedioNoMotorizado tipo;
 
-    public TipoMedioNoMotorizado getTipo() {
-        return tipo;
+    public String getTipo() {
+        return String.valueOf(tipo);
     }
 
     public void setTipo(TipoMedioNoMotorizado tipo) {

@@ -27,11 +27,11 @@ public class TransportePublico extends Medio {
         this.paradas = list;
     }
 
-    public TipoTransportePublico getTipoTransportePublico() {
-        return tipoTransportePublico;
+    public String getTipo() {
+        return String.valueOf(tipoTransportePublico);
     }
 
-    public void setTipoTransportePublico(TipoTransportePublico tipoTransportePublico) {
+    public void setTipo(TipoTransportePublico tipoTransportePublico) {
         this.tipoTransportePublico = tipoTransportePublico;
     }
 
@@ -51,7 +51,4 @@ public class TransportePublico extends Medio {
         this.paradas = paradas;
     }
 
-    public Double getFE() {
-        return null; // TODO
-    }
 }

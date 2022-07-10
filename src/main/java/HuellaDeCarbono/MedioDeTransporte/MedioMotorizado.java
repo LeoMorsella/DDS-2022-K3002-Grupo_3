@@ -3,6 +3,7 @@ package HuellaDeCarbono.MedioDeTransporte;
 import HuellaDeCarbono.CalculoDeHuella.FactoresDeEmision;
 
 public class MedioMotorizado extends Medio {
+
     private TipoVehiculoMotorizado tipoVehiculoMotorizado;
     private TipoCombustible tipoCombustible;
     private String patente;
@@ -14,12 +15,8 @@ public class MedioMotorizado extends Medio {
         return ID;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
-    }
-
-    public TipoVehiculoMotorizado getTipoVehiculoMotorizado() {
-        return tipoVehiculoMotorizado;
+    public String getTipo() {
+        return String.valueOf(tipoVehiculoMotorizado);
     }
 
     public void setTipoVehiculoMotorizado(TipoVehiculoMotorizado tipoVehiculoMotorizado) {

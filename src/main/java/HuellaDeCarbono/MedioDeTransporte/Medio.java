@@ -5,5 +5,5 @@ public abstract class Medio {
 
     abstract public String getID();
 
-    abstract public Double getFE();
+    abstract public String getTipo();
 }

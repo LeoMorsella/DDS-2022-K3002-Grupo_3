@@ -28,6 +28,22 @@ public class Recorrido {
         return nuevoRecorrido;
     }
 
+    public Double getFactorDeUso() {
+        return factorDeUso;
+    }
+
+    public void setFactorDeUso(Double factorDeUso) {
+        this.factorDeUso = factorDeUso;
+    }
+
+    public Date getFechaDeInicio() {
+        return fechaDeInicio;
+    }
+
+    public void setFechaDeInicio(Date fechaDeInicio) {
+        this.fechaDeInicio = fechaDeInicio;
+    }
+
     public void setTrayectos(ArrayList<Trayecto> trayectos) {
         this.trayectos = trayectos;
     }
@@ -35,7 +51,7 @@ public class Recorrido {
     public void asociarA(Miembro miembro, Double factorDeUso, Date fechaDeInicio){
         this.factorDeUso = factorDeUso;
         this.fechaDeInicio = fechaDeInicio;
-        miembro.getRecorrido().add(this);
+        miembro.getRecorridos().add(this);
     }
 
     public void addTrayectos(ArrayList<Trayecto> nuevosTrayectos){
@@ -48,14 +64,6 @@ public class Recorrido {
             distanciaTotal = distanciaTotal + trayecto.distanciaMedia();
         }
         return distanciaTotal;
-    }
-
-    public Double calculoHuella() throws Exception {
-        Double huellaRecorrido = 0.0;
-        for(Trayecto trayecto : trayectos) {
-            huellaRecorrido += trayecto.calculoHuella();
-        }
-        return huellaRecorrido;
     }
 
 }
