@@ -8,20 +8,24 @@ import java.util.List;
 
 public class CalcularHuellaDeCarbono {
 
-    //TODO: Volver singleton para que se mantenga el valor de k
     Double k = 0.0;
+    private static CalcularHuellaDeCarbono instance = new CalcularHuellaDeCarbono();
 
     public Double getK() {
         return k;
     }
 
+    public static CalcularHuellaDeCarbono getCalculadora() {
+        return instance;
+      }
+
     public void setK(Double k) {
         this.k = k;
     }
 
-    public CalcularHuellaDeCarbono(Double k) {
+    /* public CalcularHuellaDeCarbono(Double k) {
         this.k = k;
-    }
+    } */
 
     public CalcularHuellaDeCarbono(){
         this.k = 0.0;

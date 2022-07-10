@@ -102,22 +102,25 @@ public class Miembro {
     public Double calcularHC(){
         Double HC;
         try {
-            HC = new CalcularHuellaDeCarbono().calcularHCMiembro(this);
+            HC = new CalcularHuellaDeCarbono().getCalculadora().calcularHCMiembro(this);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
         return HC;
     }
-    public Double calcularImpactoIndividual(Organizacion organizacion, Double k) throws Exception {
+    public Double calcularImpactoIndividual(Organizacion organizacion) throws Exception {
         Double HCInd;
         Double HCorg;
         Double promedio;
         Double impacto;
-        HCorg = organizacion.calcularHC(k);
+    //  Double k = CalcularHuellaDeCarbono.getCalculadora().getK();
+
+        HCorg = organizacion.calcularHC();
         //TODO: Asociar recorridos a las organizaciones donde se usan
         HCInd = this.calcularHC();
         promedio = HCorg / organizacion.getMiembros().size();
         impacto = (HCInd * promedio) / 100;
+        
         System.out.println("La Huella de carbono de su compañía es: " + HCorg +". Su Huella de carbono"
         +" individual es: " + HCInd + ". Eso equivale a un: " +impacto+ "% de la Huella de carbono de " +
                 "organización");

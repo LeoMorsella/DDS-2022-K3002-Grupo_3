@@ -125,16 +125,16 @@ public class Organizacion {
         return medicionesOrga;
     }
 
-    public Double calcularHC(Double k) throws Exception {
+    public Double calcularHC() throws Exception {
         Double HC = 0.0;
 
         for( Area area : areas) {
-            HC += area.calcularHC(k);
+            HC += area.calcularHC();
         }
         return HC   ;
     }
 
-    public Double HCpromedio(Double k) throws Exception {
-        return this.calcularHC(k) / this.getMiembros().size();
+    public Double HCpromedio() throws Exception {
+        return this.calcularHC() / this.getMiembros().size();
     }
 }

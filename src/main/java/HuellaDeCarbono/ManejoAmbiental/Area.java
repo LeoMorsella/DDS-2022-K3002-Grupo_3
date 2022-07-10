@@ -55,18 +55,18 @@ public class Area {
         mediciones.add(nuevasMedicion);
     }
 
-    public Double calcularHC(Double k) throws Exception {
+    public Double calcularHC() throws Exception {
         Double HC = 0.0;
         for (Miembro miembro : miembros) {
-            HC += new CalcularHuellaDeCarbono().calcularHCMiembro(miembro);
+            HC += CalcularHuellaDeCarbono().getCalculadora().calcularHCMiembro(miembro);
         }
         for (List<DatoDeActividad> mediciones : mediciones ) {
-            HC += new CalcularHuellaDeCarbono(k).calcularHCMedicion(mediciones);
+            HC += CalcularHuellaDeCarbono().getCalculadora().calcularHCMedicion(mediciones);
         }
         return HC;
     }
 
-    public Double HCpromedio(Double k) throws Exception {
-        return this.calcularHC(k) / this.getMiembros().size();
+    public Double HCpromedio() throws Exception {
+        return this.calcularHC() / this.getMiembros().size();
     }
 }
