@@ -1,11 +1,11 @@
 package HuellaDeCarbono.CalculoDeHuella;
 
-import HuellaDeCarbono.CargaDeMediciones.DatoDeActividad;
+import HuellaDeCarbono.CargaDeMediciones.Medicion;
 
 import java.util.List;
 
 public class CalcularHuellaDeCarbonoMedicion {
-    static public Double calcularHCMedicionEstandar(DatoDeActividad medicion){
+    static public Double calcularHCMedicionEstandar(Medicion medicion){
         Double HC = 0.0;
         Double FE = FactoresDeEmision.getFactores().getFE(medicion.getActividad());
         Double valor = (Double) medicion.getValor();
@@ -26,12 +26,12 @@ public class CalcularHuellaDeCarbonoMedicion {
             return HC = (distancia * peso)/12 * k * FE;
         }
     }
-    static public Double calcularHCMedicion(List<DatoDeActividad> mediciones,Double k) {
+    static public Double calcularHCMedicion(List<Medicion> mediciones,Double k) {
     Double HCTotal = 0.0;
     Double peso = 0.0;
     Double distancia = 0.0;
     Double FE = 0.0;
-        for (DatoDeActividad medicion : mediciones) {
+        for (Medicion medicion : mediciones) {
             if (medicion.getActividad() != "Logística de productos y resitudos") {
                 HCTotal += calcularHCMedicionEstandar(medicion);
             }

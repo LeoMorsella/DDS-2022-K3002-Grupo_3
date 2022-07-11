@@ -35,7 +35,7 @@ import java.util.regex.Pattern;
             return this;
         }
 
-        public List<DatoDeActividad> lecturaArchivo(int sheetNumber) {
+        public List<Medicion> lecturaArchivo(int sheetNumber) {
 
             DataFormatter formatter = new DataFormatter();
             Sheet sheet1 = workbook.getSheetAt(sheetNumber);
@@ -50,8 +50,8 @@ import java.util.regex.Pattern;
             String periodoImputacion = null;
             String unidad = null;
 
-            List<DatoDeActividad> medicion = new ArrayList<>();
-            DatoDeActividad datoDeActividad;
+            List<Medicion> medicion = new ArrayList<>();
+            Medicion Medicion;
 
             final String primerasFilas = "^[A-F]1|^[A-F]2";
             pattern = Pattern.compile(primerasFilas);
@@ -85,8 +85,8 @@ import java.util.regex.Pattern;
                     }
                 }
                 if (!matcher.matches()) {
-                    datoDeActividad = new DatoDeActividad(actividad, unidad, tipoDeConsumo, valor, periodicidad, periodoImputacion);
-                    medicion.add(datoDeActividad);
+                    Medicion = new Medicion(actividad, unidad, tipoDeConsumo, valor, periodicidad, periodoImputacion);
+                    medicion.add(Medicion);
                 }
             }
             return medicion;

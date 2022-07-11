@@ -1,5 +1,6 @@
 package OrganizacionTest;
 
+import HuellaDeCarbono.CargaDeMediciones.Medicion;
 import HuellaDeCarbono.Movilidad.Recorrido;
 import HuellaDeCarbono.Movilidad.Trayecto;
 import HuellaDeCarbono.ManejoAmbiental.*;
@@ -26,16 +27,16 @@ public class MiembroTest {
     }
 
     @Test
-    public void medirImpactoPersonal() {
+    public void medirImpactoPersonal() throws Exception {
         Ubicacion ubicacion = new Ubicacion("Argentina","Buenos Aires","La Matanza","Gonzalez Catan","Matienzo","15500");
         ArrayList<Area> areasPrueba = new ArrayList<>();
         Organizacion organizacionPrueba = new Organizacion("SA", TipoOrg.EMPRESA,ubicacion,areasPrueba,Clasificacion.MINISTERIO, null, null);
         ArrayList<Recorrido> recorrido = new ArrayList<>();
         Miembro miembro = new Miembro("Juan","Perez","DNI",123456789,areasPrueba,recorrido);
         Medicion medicion = new Medicion("Electricidad adquirida y consumida","m3","Electricidad","2000","Diaria","30");
-        ArrayList<Medicion> medicions = new ArrayList<>();
-        medicions.add(medicion);
-        miembro.setMediciones(medicions);
-        Assertions.assertEquals(2000,miembro.impactoPersonal());
+        ArrayList<Medicion> mediciones = new ArrayList<>();
+        mediciones.add(medicion);
+        // miembro.setMediciones(medicion); // TODO el miembro tiene mediciones?
+        Assertions.assertEquals(2000,miembro.calcularImpactoIndividual(organizacionPrueba));
     }
 }

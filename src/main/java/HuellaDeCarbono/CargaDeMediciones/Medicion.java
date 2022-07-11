@@ -1,6 +1,6 @@
 package HuellaDeCarbono.CargaDeMediciones;
 
-public class DatoDeActividad {
+public class Medicion {
 
          private  String actividad;
          private  String tipoDeConsumo;
@@ -9,7 +9,7 @@ public class DatoDeActividad {
         private String periodoImputacion;
         private String unidad;
 
-        public DatoDeActividad(String actividad, String unidad, String tipoDeConsumo, String valor, String periodicidad, String periodoImputacion) {
+        public Medicion(String actividad, String unidad, String tipoDeConsumo, String valor, String periodicidad, String periodoImputacion) {
             this.actividad = actividad;
             this.tipoDeConsumo = tipoDeConsumo;
             this.valor = valor;
