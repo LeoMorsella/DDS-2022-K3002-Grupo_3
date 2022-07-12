@@ -44,8 +44,7 @@ public class PruebaLecturaArchivo {
         CargaDeMediciones cargaMediciones = new CargaDeMediciones();
         cargaMediciones.useExistingWorkbook(filePath);
         List<DatoDeMedicion> listaDatoDeMedicion = cargaMediciones.lecturaArchivo(0);
-        System.out.println(listaDatoDeMedicion.get(2).getValor());
-        //Assert.assertEquals(listaDatoDeMedicion.get(2).getValor());
+        Assert.assertEquals(845.0,listaDatoDeMedicion.get(2).getValor());
     }
 
     @Test
