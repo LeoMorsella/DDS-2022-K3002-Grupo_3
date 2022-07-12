@@ -1,7 +1,7 @@
 package HuellaDeCarbono.CalculoDeHuella;
 
 
-import HuellaDeCarbono.CargaDeMediciones.Medicion;
+import HuellaDeCarbono.CargaDeMediciones.DatoDeMedicion;
 import HuellaDeCarbono.ManejoAmbiental.Miembro;
 
 import java.util.List;
@@ -32,8 +32,8 @@ public class CalcularHuellaDeCarbono {
     }
 
     //Todos los calculos de HC se hacen respecto a un mes de consumo
-    public Double calcularHCMedicion(List<Medicion> medicion) {
-        return CalcularHuellaDeCarbonoMedicion.calcularHCMedicion(medicion, k);
+    public Double calcularHCMedicion(List<DatoDeMedicion> datoDeMedicion) {
+        return CalcularHuellaDeCarbonoMedicion.calcularHCMedicion(datoDeMedicion, k);
     }
 
     public Double calcularHCMiembro(Miembro miembro) throws Exception {

@@ -2,8 +2,7 @@ package HuellaDeCarbono.ManejoAmbiental;
 
 import HuellaDeCarbono.CalculoDeHuella.CalcularHuellaDeCarbono;
 import HuellaDeCarbono.CargaDeMediciones.CargaDeMediciones;
-import HuellaDeCarbono.CargaDeMediciones.Medicion;
-import HuellaDeCarbono.CargaDeMediciones.Medicion;
+import HuellaDeCarbono.CargaDeMediciones.DatoDeMedicion;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +11,7 @@ public class Area {
     private String nombre;
     private  ArrayList<Miembro> miembros;
     private  Organizacion organizacion;
-    private  List<List<Medicion>> mediciones = null;
+    private  List<List<DatoDeMedicion>> mediciones = null;
 
     public Area(String nombre, ArrayList<Miembro> miembros,Organizacion organizacion) {
         this.nombre = nombre;
@@ -44,7 +43,7 @@ public class Area {
         this.organizacion = organizacion;
     }
 
-    public List<List<Medicion>> getMediciones() {
+    public List<List<DatoDeMedicion>> getMediciones() {
         return mediciones;
     }
 
@@ -52,8 +51,8 @@ public class Area {
         String filePath = DireccionExcel;
         CargaDeMediciones cargaMediciones = new CargaDeMediciones();
         cargaMediciones.useExistingWorkbook(filePath);
-        List<Medicion> nuevasMedicion = cargaMediciones.lecturaArchivo(0);
-        mediciones.add(nuevasMedicion);
+        List<DatoDeMedicion> nuevasDatoDeMedicion = cargaMediciones.lecturaArchivo(0);
+        mediciones.add(nuevasDatoDeMedicion);
     }
 
     public Double calcularHC() throws Exception {
@@ -61,7 +60,7 @@ public class Area {
         for (Miembro miembro : miembros) {
             HC += CalcularHuellaDeCarbono.getCalculadora().calcularHCMiembro(miembro);
         }
-        for (List<Medicion> mediciones : mediciones ) {
+        for (List<DatoDeMedicion> mediciones : mediciones ) {
             HC += CalcularHuellaDeCarbono.getCalculadora().calcularHCMedicion(mediciones);
         }
         return HC;

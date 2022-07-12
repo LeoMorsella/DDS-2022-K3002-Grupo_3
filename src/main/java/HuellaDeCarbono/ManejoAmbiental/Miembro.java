@@ -99,7 +99,7 @@ public class Miembro {
 
     public Boolean perteneceA(Area area) {return areas.contains(area);}
 
-    public Double calcularHC(){
+    public Double calcularHC() throws RuntimeException {
         Double HC;
         try {
             HC = new CalcularHuellaDeCarbono().getCalculadora().calcularHCMiembro(this);

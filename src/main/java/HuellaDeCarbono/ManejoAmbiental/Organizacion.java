@@ -1,16 +1,11 @@
 package HuellaDeCarbono.ManejoAmbiental;
 
-import HuellaDeCarbono.CargaDeMediciones.CargaDeMediciones;
-import HuellaDeCarbono.CargaDeMediciones.Medicion;
+import HuellaDeCarbono.CargaDeMediciones.DatoDeMedicion;
 import HuellaDeCarbono.MedioDeTransporte.Medio;
-import HuellaDeCarbono.Repositorios.RepositorioMiembros;
 import HuellaDeCarbono.Repositorios.RepositorioTrayectos;
 import HuellaDeCarbono.Movilidad.Trayecto;
-import HuellaDeCarbono.Repositorios.RepositorioUsuarios;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 public class Organizacion {
@@ -115,11 +110,11 @@ public class Organizacion {
         RepositorioTrayectos.getRepositorio().agregarTrayecto(nuevoTrayecto);
     }
 
-    public List<List<Medicion>> getMediciones(){
-        List<List<Medicion>> medicionesOrga = new ArrayList<>();
+    public List<List<DatoDeMedicion>> getMediciones(){
+        List<List<DatoDeMedicion>> medicionesOrga = new ArrayList<>();
         for (Area area : this.areas){
-            for (List<Medicion> medicion : area.getMediciones()){
-                medicionesOrga.add(medicion);
+            for (List<DatoDeMedicion> datoDeMedicion : area.getMediciones()){
+                medicionesOrga.add(datoDeMedicion);
             }
         }
         return medicionesOrga;

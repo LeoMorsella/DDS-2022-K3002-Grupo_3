@@ -18,7 +18,7 @@ public class Recorrido {
         return trayectos;
     }
 
-    private Recorrido(ArrayList<Trayecto> trayectos) {
+    public Recorrido(ArrayList<Trayecto> trayectos) {
         this.trayectos = trayectos;
     }
 

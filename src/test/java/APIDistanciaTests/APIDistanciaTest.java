@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Assertions;
 public class APIDistanciaTest {
 
     @Test
-    public void testDistanciaValida() {
+    public void testDistanciaValida() throws Exception {
 
         Ubicacion ubicacion1Test = new Ubicacion("ARGENTINA", "MISIONES",
                 "MONTECARLO", "CARAGUATAY ", "maipu", "100");
@@ -17,9 +17,7 @@ public class APIDistanciaTest {
                 "MONTECARLO", "CARAGUATAY ", "maipu", "200");
 
         APIDistanciaService distanciaService = new APIDistanciaService();
-        Assertions.assertDoesNotThrow(() -> distanciaService.medirDistancia(
-                ubicacion1Test, ubicacion2Test
-        ));
+        Assertions.assertDoesNotThrow(() -> distanciaService.medirDistancia(ubicacion1Test, ubicacion2Test));
     }
 
 }
