@@ -129,6 +129,7 @@ public class Organizacion {
         return HC   ;
     }
 
+
     public Double HCpromedio() throws Exception {
         return this.calcularHC() / this.getMiembros().size();
     }

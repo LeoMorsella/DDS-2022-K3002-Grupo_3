@@ -49,7 +49,7 @@ public class Trayecto {
         this.medioTransporte = medioTransporte;
     }
 
-    public Float distanciaMedia() throws Exception {
+    public Double distanciaMedia() throws Exception {
         APIDistanciaService distanciaService = new APIDistanciaService();
         return distanciaService.medirDistancia(puntoPartida, puntoLlegada);
     }

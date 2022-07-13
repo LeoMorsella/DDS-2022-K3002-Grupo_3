@@ -18,13 +18,15 @@ public class CalcularHuellaDeCarbonoMiembro {
     private static Double calcularHCRecorrido (Recorrido recorrido) throws Exception {
         Double HC = 0.0;
         for(Trayecto trayecto : recorrido.getTrayectos()) {
-            HC += calcularHCTrayecto(trayecto) * recorrido.getFactorDeUso();
+            HC += calcularHCTrayecto(trayecto) /** recorrido.getFactorDeUso()*/;
         }
         return HC;
     }
 
     public static Double calcularHCTrayecto(Trayecto trayecto) throws Exception {
-        return trayecto.distanciaMedia() * FactoresDeEmision.getInstance().getFE(trayecto.getMedioTransporte().getTipo());
+        FactoresDeEmision FE = FactoresDeEmision.getInstance();
+        System.out.println(FE.getFE("AUTO"));
+        return trayecto.distanciaMedia() * FE.getFE(trayecto.getMedioTransporte().getTipo());
     }
 
 }

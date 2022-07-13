@@ -104,7 +104,7 @@ public class APIDistanciaService {
             throw new BadResponseException("Error en la llamada de búsqueda de " + variable);
         }
     }
-    public Float medirDistancia(Ubicacion ubicacion1, Ubicacion ubicacion2) throws Exception {
+    public Double medirDistancia(Ubicacion ubicacion1, Ubicacion ubicacion2) throws Exception {
 
         int idLocalidadOrigen  = this.buscarIdLocalidad(ubicacion1);
         int idLocalidadDestino = this.buscarIdLocalidad(ubicacion1);

@@ -14,7 +14,7 @@ public class Parada {
         this.ubicacion = ubi;
     }
 
-    public Float distancaAProximaParada() throws Exception {
+    public Double distancaAProximaParada() throws Exception {
         if (distanciaAProximaParada.getValor()!= 0) {
             return distanciaAProximaParada.getValor();
         }

@@ -28,7 +28,7 @@ public class DistanciasTest {
         trayectos.add(trayectoPrueba1);
         trayectos.add(trayectoPrueba2);
 
-        Recorrido recorridoPrueba = Recorrido.nuevoRecorrido(trayectos);
+        Recorrido recorridoPrueba = Recorrido.nuevoRecorrido(trayectos, 1.0);
         System.out.println(trayectoPrueba1.distanciaMedia());
         System.out.println(trayectoPrueba2.distanciaMedia());
 

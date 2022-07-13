@@ -19,7 +19,7 @@ public class MedioMotorizado extends Medio {
         return String.valueOf(tipoVehiculoMotorizado);
     }
 
-    public void setTipoVehiculoMotorizado(TipoVehiculoMotorizado tipoVehiculoMotorizado) {
+    public void setTipo(TipoVehiculoMotorizado tipoVehiculoMotorizado) {
         this.tipoVehiculoMotorizado = tipoVehiculoMotorizado;
     }
 

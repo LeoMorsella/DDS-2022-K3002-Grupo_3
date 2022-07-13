@@ -2,6 +2,7 @@ package APIMedicionesTests;
 
 import HuellaDeCarbono.CalculoDeDistancias.Pais;
 import HuellaDeCarbono.CalculoDeDistancias.Provincia;
+import HuellaDeCarbono.CalculoDeHuella.FactoresDeEmision;
 import HuellaDeCarbono.CargaDeMediciones.CargaDeMediciones;
 import HuellaDeCarbono.CargaDeMediciones.DatoDeMedicion;
 import HuellaDeCarbono.ManejoAmbiental.*;
@@ -16,26 +17,23 @@ import java.util.List;
 import java.util.Optional;
 
 public class PruebaLecturaArchivo {
+    FactoresDeEmision FE = FactoresDeEmision.getInstance();
     ArrayList<Area> areas = new ArrayList<Area>();
-    ArrayList<Miembro> contactos = new ArrayList<Miembro>();
     ArrayList<Miembro> miembros = new ArrayList<Miembro>();
+    ArrayList<Trayecto> trayectos = new ArrayList<Trayecto>();
+    ArrayList<Recorrido> recorridos = new ArrayList<>();
 
     Ubicacion ubicacion1 = new Ubicacion("ARGENTINA", "MISIONES", "MONTECARLO", "CARAGUATAY ", "maipu", "100");
     Ubicacion ubicacion2 = new Ubicacion("ARGENTINA", "MISIONES", "MONTECARLO", "CARAGUATAY ", "maipu", "200");
     Ubicacion ubicacion3 = new Ubicacion("ARGENTINA", "MISIONES", "MONTECARLO", "CARAGUATAY ", "maipu", "300");
+    MedioMotorizado medio1 = new MedioMotorizado();
+    MedioNoMotorizado medio2 = new MedioNoMotorizado();
+    Trayecto trayecto1 = new Trayecto(ubicacion1,ubicacion2, medio1);
+    Trayecto trayecto2 = new Trayecto(ubicacion2,ubicacion3, medio2);
+    Recorrido recorrido = null;
 
-
-    Trayecto trayecto1 = new Trayecto(ubicacion1,ubicacion2, new MedioMotorizado());
-    Trayecto trayecto2 = new Trayecto(ubicacion2,ubicacion3, new MedioNoMotorizado());
-    ArrayList<Trayecto> trayectos = new ArrayList<Trayecto>();
-
-    Recorrido recorrido = new Recorrido(trayectos);
-
-    Organizacion organizacion = new Organizacion("", TipoOrg.GUBERNAMENTAL,ubicacion3,areas,Clasificacion.MINISTERIO,contactos,contactos);
-    Area area = new Area("",miembros,organizacion);
-
-    ArrayList<Recorrido> recorridos = new ArrayList<>();
-
+    Organizacion organizacion = new Organizacion("", TipoOrg.GUBERNAMENTAL,ubicacion3,areas,Clasificacion.MINISTERIO,miembros,miembros);
+    Area area = new Area("nombre del area",miembros,organizacion);
     Miembro miembro = new Miembro("algo","","",12345, areas, recorridos);
 
     @Test
@@ -49,11 +47,18 @@ public class PruebaLecturaArchivo {
 
     @Test
     public void calcularHuellaMiembro() {
+        FE.setFE("AUTO",0.5);
+        FE.setFE("BICI",0.0);
+        medio1.setTipo(TipoVehiculoMotorizado.AUTO);
+        medio2.setTipo(TipoMedioNoMotorizado.BICI);
+        areas.add(area);
+        miembros.add(miembro);
         trayectos.add(trayecto1);
         trayectos.add(trayecto2);
-        areas.add(area);
+        recorrido = Recorrido.nuevoRecorrido(trayectos, 5.0);
+        System.out.println(recorrido.getFactorDeUso());
         recorridos.add(recorrido);
-        miembros.add(miembro);
+        System.out.println(FE.getFE("AUTO"));
 
         Double huella = miembro.calcularHC();
 

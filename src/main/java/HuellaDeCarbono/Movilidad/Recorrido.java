@@ -18,22 +18,20 @@ public class Recorrido {
         return trayectos;
     }
 
-    public Recorrido(ArrayList<Trayecto> trayectos) {
+    public Recorrido(ArrayList<Trayecto> trayectos, Double unFactorDeUso) {
         this.trayectos = trayectos;
+        this.factorDeUso = unFactorDeUso;
     }
 
-    public static Recorrido nuevoRecorrido(ArrayList<Trayecto> trayectos){
-        Recorrido nuevoRecorrido = new Recorrido(trayectos);
-        RepositorioRecorrido.getRepositorio().agregarRecorrido(nuevoRecorrido);
+    public static Recorrido nuevoRecorrido(ArrayList<Trayecto> trayectos, Double unFactorDeUso){
+        Recorrido nuevoRecorrido = new Recorrido(trayectos, unFactorDeUso);
+        System.out.println(nuevoRecorrido.getFactorDeUso());
+        //RepositorioRecorrido.getRepositorio().agregarRecorrido(nuevoRecorrido);
         return nuevoRecorrido;
     }
 
     public Double getFactorDeUso() {
         return factorDeUso;
-    }
-
-    public void setFactorDeUso(Double factorDeUso) {
-        this.factorDeUso = factorDeUso;
     }
 
     public Date getFechaDeInicio() {
@@ -58,8 +56,8 @@ public class Recorrido {
         for(Trayecto trayecto : nuevosTrayectos) trayectos.add(trayecto);
     }
 
-    public Float distanciaTotal() throws Exception {
-        Float distanciaTotal = Float.parseFloat("0");
+    public Double distanciaTotal() throws Exception {
+        Double distanciaTotal = Double.parseDouble("0");
         for (Trayecto trayecto : trayectos){
             distanciaTotal = distanciaTotal + trayecto.distanciaMedia();
         }
