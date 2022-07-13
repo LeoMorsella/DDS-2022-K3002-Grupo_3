@@ -24,7 +24,7 @@ public class CalcularHuellaDeCarbonoMiembro {
     }
 
     public static Double calcularHCTrayecto(Trayecto trayecto) throws Exception {
-        return trayecto.distanciaMedia() * FactoresDeEmision.getFactores().getFE(trayecto.getMedioTransporte().getTipo());
+        return trayecto.distanciaMedia() * FactoresDeEmision.getInstance().getFE(trayecto.getMedioTransporte().getTipo());
     }
 
 }

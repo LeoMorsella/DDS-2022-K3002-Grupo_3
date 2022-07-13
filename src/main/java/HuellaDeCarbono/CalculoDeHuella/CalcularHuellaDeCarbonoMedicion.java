@@ -7,7 +7,7 @@ import java.util.List;
 public class CalcularHuellaDeCarbonoMedicion {
     static public Double calcularHCMedicionEstandar(DatoDeMedicion datoDeMedicion){
         Double HC = 0.0;
-        Double FE = FactoresDeEmision.getFactores().getFE(datoDeMedicion.getActividad());
+        Double FE = FactoresDeEmision.getInstance().getFE(datoDeMedicion.getActividad());
         Double valor = (Double) datoDeMedicion.getValor();
         if(datoDeMedicion.getPeriodicidad() == "mensual"){
             return HC = valor * FE;
@@ -41,7 +41,7 @@ public class CalcularHuellaDeCarbonoMedicion {
                 else if (datoDeMedicion.getTipoDeConsumo() == "Peso Total Transportado")
                     peso = (Double) datoDeMedicion.getValor();
                 else if (datoDeMedicion.getTipoDeConsumo() == "Medio de Transporte")
-                    FE = FactoresDeEmision.getFactores().getFE((String) datoDeMedicion.getValor());
+                    FE = FactoresDeEmision.getInstance().getFE((String) datoDeMedicion.getValor());
             }
             HCTotal += calcularHCMedicionLogistica(distancia, peso, datoDeMedicion.getPeriodicidad(), FE, k);
         }
